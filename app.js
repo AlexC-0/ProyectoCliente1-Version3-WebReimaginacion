@@ -1,166 +1,294 @@
 (function () {
   "use strict";
 
+  var es = {
+    "brand.claim": "WebReimaginacion",
+    "nav.open": "Abrir menu",
+    "nav.landing": "Landing",
+    "nav.map": "Mapa orbital",
+    "nav.contact": "Contacto",
+    "nav.language": "Seleccionar idioma",
+    "ribbon.prev": "Mover cinta a la izquierda",
+    "ribbon.next": "Mover cinta a la derecha",
+    "orbit.core": "Arquitectura",
+    "orbit.systems": "Sistemas",
+    "orbit.systemsText": "Packs y control.",
+    "orbit.apps": "Aplicaciones",
+    "orbit.appsText": "Casos de uso.",
+    "orbit.method": "Metodo",
+    "orbit.methodText": "Proceso tecnico.",
+    "orbit.docs": "Datos",
+    "orbit.docsText": "CAD, CAN y HV.",
+    "orbit.contact": "Contacto",
+    "orbit.contactText": "Consulta guiada.",
+    "card.orbitEyebrow": "Mapa vivo",
+    "card.orbitTitle": "Mapa orbital navegable.",
+    "card.orbitText": "Cada nodo abre una seccion desarrollada. La cinta funciona como entrada visual, no como bloque de texto.",
+    "card.systemsEyebrow": "Sistemas",
+    "card.systemsTitle": "Packs, BMS y arquitectura modular.",
+    "card.systemsText": "Familias NMC, LFP y control multipack para entrar directo en la ficha tecnica.",
+    "card.openSystems": "Abrir sistemas",
+    "card.appsEyebrow": "Aplicaciones",
+    "card.appsTitle": "Sectores electrificados por escenario.",
+    "card.appsText": "Bus, marino, agricola, VCL, carga movil y ferrocarril en lectura rapida.",
+    "card.openApps": "Abrir aplicaciones",
+    "card.methodEyebrow": "Metodo",
+    "card.methodTitle": "Del encaje tecnico a la propuesta viable.",
+    "card.methodText": "Requisitos, integracion, validacion y soporte inicial sin rodeos.",
+    "card.openMethod": "Abrir metodo",
+    "card.docsEyebrow": "Documentacion",
+    "card.docsTitle": "Datos tecnicos accionables.",
+    "card.docsText": "CAD, CAN, HV, OPS y checklist de solicitud para equipos tecnicos.",
+    "card.openDocs": "Abrir documentacion",
+    "card.contactEyebrow": "Consulta",
+    "card.contactTitle": "Formulario validado y contacto directo.",
+    "card.contactText": "Solicitud limpia, filtrada y util para ventas e ingenieria.",
+    "card.openContact": "Abrir contacto",
+    "systems.eyebrow": "Sistemas",
+    "systems.title": "Packs, BMS y arquitectura integrable.",
+    "systems.text": "Familias NMC y LFP, supervision BMS, energia, tension y puntos de validacion tecnica.",
+    "systems.ask": "Incluir sistema en consulta",
+    "systems.docs": "Ver documentacion",
+    "systems.add": "Incluir en consulta",
+    "systems.matrixEyebrow": "Lectura tecnica",
+    "systems.matrixTitle": "Lo que se valida antes de proponer configuracion.",
+    "systems.m1Title": "Envolvente",
+    "systems.m1Text": "Dimensiones, montaje, proteccion ambiental, acceso de servicio y restricciones del vehiculo.",
+    "systems.m2Title": "Arquitectura HV",
+    "systems.m2Text": "Tension nominal, numero de packs, estrategia serie/paralelo y protecciones.",
+    "systems.m3Title": "Control",
+    "systems.m3Text": "BMS, comunicacion CAN, diagnostico, estados SOC/SOH y logica de seguridad.",
+    "ribbon.nmc": "Alta densidad en formato compacto.",
+    "ribbon.lfp": "Seguridad, vida util y escalado.",
+    "ribbon.bms": "Control multipack centralizado.",
+    "apps.eyebrow": "Aplicaciones",
+    "apps.title": "Aplicaciones por uso real.",
+    "apps.text": "Sectores exigentes agrupados como escenarios: condicion de uso, prioridad tecnica y siguiente paso.",
+    "apps.all": "Todas",
+    "apps.mobility": "Movilidad",
+    "apps.industrial": "Industrial",
+    "apps.heavy": "Alta demanda",
+    "apps.busTitle": "Autobuses electricos e hidrogeno",
+    "apps.busText": "Arquitecturas multi-rack para urbano e interurbano, con foco en disponibilidad, seguridad y servicio.",
+    "apps.seaTitle": "Marino electrico e hibrido",
+    "apps.seaText": "Sistemas paralelizables para entornos exigentes donde pesan redundancia, envolvente y comunicacion.",
+    "apps.agrTitle": "Agricola",
+    "apps.agrText": "Energia robusta para maquinaria de campo, vibracion, polvo y ciclos de trabajo variables.",
+    "apps.vclTitle": "Vehiculos comerciales ligeros",
+    "apps.vclText": "Integracion para series cortas y medias donde importan plazo, coste y compatibilidad.",
+    "apps.chargeTitle": "Carga movil",
+    "apps.chargeText": "Soporte energetico temporal o semiestacionario para eventos, obra o respaldo local.",
+    "apps.railTitle": "Ferrocarril",
+    "apps.railText": "Escalado multipack para necesidades energeticas altas, ciclos intensivos y seguridad operacional.",
+    "apps.validate": "Validar aplicacion",
+    "method.eyebrow": "Metodo",
+    "method.title": "De necesidad tecnica a propuesta viable.",
+    "method.text": "Encaje, integracion, validacion y activacion ordenan la conversacion tecnico-comercial.",
+    "method.oneTitle": "Encaje",
+    "method.oneText": "Aplicacion, tension, energia, envolvente, volumen, calendario y restricciones de homologacion.",
+    "method.twoTitle": "Integracion",
+    "method.twoText": "Mecanica, comunicacion, termica, seguridad, arquitectura multipack y documentacion base.",
+    "method.threeTitle": "Validacion",
+    "method.threeText": "Revision tecnica, riesgos, compatibilidad, propuesta de configuracion y condiciones de arranque.",
+    "method.fourTitle": "Activacion",
+    "method.fourText": "Oferta, puesta en marcha, acompanamiento inicial y ajustes de configuracion.",
+    "method.plannerEyebrow": "Preparador de consulta",
+    "method.plannerTitle": "Ordena la primera conversacion tecnica.",
+    "method.prepare": "Preparar consulta",
+    "route.result": "Consulta preparada para {application}, en fase {stage}, con interes en {product}.",
+    "docs.eyebrow": "Documentacion",
+    "docs.title": "Documentacion por utilidad tecnica.",
+    "docs.text": "CAD, CAN, HV y OPS separados para pedir solo lo necesario.",
+    "docs.cadTitle": "Envolvente y montaje",
+    "docs.cadText": "Planos, interfaces, volumen disponible, accesos de servicio y restricciones de fijacion.",
+    "docs.canTitle": "Comunicacion",
+    "docs.canText": "Mensajes, diagnostico, estados, alarmas y coordinacion con la unidad de control.",
+    "docs.hvTitle": "Arquitectura electrica",
+    "docs.hvText": "Tension nominal, protecciones, HVIL, seguridad y configuracion serie/paralelo.",
+    "docs.opsTitle": "Operacion",
+    "docs.opsText": "Puesta en marcha, mantenimiento, recomendaciones de uso y soporte inicial.",
+    "docs.checkEyebrow": "Checklist",
+    "docs.checkTitle": "Marca lo que necesitas revisar.",
+    "docs.checkText": "La seleccion se guarda para abrir contacto con una solicitud mas ordenada.",
+    "docs.needCad": "Planos CAD o volumen mecanico",
+    "docs.needCan": "Matriz CAN o diagnostico",
+    "docs.needHv": "Rango HV y protecciones",
+    "docs.needOps": "Manual y puesta en marcha",
+    "docs.request": "Solicitar documentacion",
+    "docs.counter": "{count} elementos seleccionados.",
+    "contact.eyebrow": "Consulta tecnica",
+    "contact.title": "Consulta tecnica validada.",
+    "contact.text": "El formulario limita campos, valida opciones y conserva selecciones hechas desde otras secciones.",
+    "form.name": "Nombre",
+    "form.company": "Empresa",
+    "form.email": "Correo profesional",
+    "form.country": "Pais",
+    "form.application": "Aplicacion",
+    "form.product": "Sistema de interes",
+    "form.stage": "Fase",
+    "form.volume": "Volumen",
+    "form.message": "Necesidad tecnica",
+    "form.placeholder": "Energia requerida, tension, restricciones mecanicas, comunicaciones, plazos o contexto del vehiculo.",
+    "form.privacy": "Acepto el tratamiento de mis datos para responder a esta solicitud.",
+    "form.submit": "Enviar consulta",
+    "form.select": "Selecciona una opcion",
+    "form.optional": "Opcional",
+    "option.bus": "Autobuses",
+    "option.sea": "Marino",
+    "option.agr": "Agricola",
+    "option.vcl": "Vehiculos comerciales ligeros",
+    "option.charge": "Carga movil",
+    "option.rail": "Ferrocarril",
+    "option.unknown": "A definir",
+    "option.system": "Sistema completo",
+    "option.compare": "Comparar alternativas",
+    "option.quote": "Presupuesto inicial",
+    "option.design": "Diseno de integracion",
+    "option.validation": "Validacion tecnica",
+    "option.purchase": "Compra o industrializacion",
+    "option.prototype": "Prototipo",
+    "option.short": "Serie corta",
+    "option.medium": "Serie media",
+    "option.open": "A definir",
+    "footer.text": "Version reimaginada con navegacion por cinta infinita.",
+    "processGuide.eyebrow": "PROCESO GUIADO",
+    "processGuide.open": "Abrir proceso guiado",
+    "processGuide.close": "Cerrar proceso guiado",
+    "scroll.top": "Volver al inicio",
+    "feedback.invalid": "Revisa los campos marcados antes de enviar.",
+    "feedback.ready": "Consulta validada. Preparando envio tecnico.",
+    "feedback.file": "Consulta validada. Servida por HTTP se enviaria al endpoint tecnico.",
+    "feedback.ok": "Consulta validada correctamente.",
+    "feedback.error": "No se ha podido enviar la consulta. Revisa los campos.",
+    "feedback.product": "Sistema incorporado a la consulta.",
+    "feedback.requiredText": "Completa este campo con mas detalle.",
+    "feedback.badText": "El contenido incluye caracteres no contemplados.",
+    "feedback.email": "Introduce un correo profesional valido.",
+    "feedback.select": "Selecciona una opcion.",
+    "feedback.option": "La opcion seleccionada no esta contemplada.",
+    "feedback.message": "Describe la necesidad tecnica con algo mas de detalle.",
+    "feedback.badMessage": "La necesidad tecnica incluye caracteres no contemplados.",
+    "feedback.privacy": "Debes aceptar el tratamiento de datos para enviar la consulta."
+  };
+
+  function merge(base, override) {
+    var result = {};
+    Object.keys(base).forEach(function (key) {
+      result[key] = base[key];
+    });
+    Object.keys(override).forEach(function (key) {
+      result[key] = override[key];
+    });
+    return result;
+  }
+
   var copy = {
-    es: {
-      "brand.claim": "High Voltage Lab",
-      "nav.map": "Mapa orbital",
-      "nav.contact": "Contacto",
-      "opening.eyebrow": "Reimaginacion industrial",
-      "opening.title": "Una web que presenta el sistema como una arquitectura electrica viva.",
-      "opening.text": "La tercera version transforma la navegacion en un mapa orbital, reduce el ruido comercial y convierte productos, aplicaciones, metodo y datos en una experiencia visual mas memorable.",
-      "orbit.core": "Sistema vivo",
-      "orbit.systems": "Sistemas",
-      "orbit.systemsText": "Packs, control y energia.",
-      "orbit.apps": "Aplicaciones",
-      "orbit.appsText": "Sectores electrificados.",
-      "orbit.method": "Metodo",
-      "orbit.methodText": "Viabilidad e integracion.",
-      "orbit.docs": "Datos",
-      "orbit.docsText": "CAD, CAN y HV.",
-      "orbit.contact": "Contacto",
-      "orbit.contactText": "Consulta cualificada.",
-      "hero.eyebrow": "Baterias de alto voltaje",
-      "hero.title": "Del pack al ecosistema: energia, control y soporte en una unica lectura.",
-      "hero.text": "Una propuesta para OEMs y fabricantes que necesitan integrar sistemas de bateria de alto voltaje en aplicaciones exigentes, con menos friccion tecnica y mas claridad en la decision.",
-      "metric.energy": "Energia por pack",
-      "metric.voltage": "Rango nominal",
-      "metric.protection": "Proteccion",
-      "systems.eyebrow": "Sistemas",
-      "systems.title": "Familias tecnicas convertidas en piezas visuales.",
-      "systems.text": "La cinta infinita mantiene la exploracion viva: primero se reconoce la familia, despues se abre la ficha concreta con datos de integracion.",
-      "ribbon.nmc": "Alta densidad en formato compacto.",
-      "ribbon.lfp": "Seguridad, vida util y escalado.",
-      "ribbon.bms": "Control multipack centralizado.",
-      "systems.add": "Incluir en consulta",
-      "systems.docs": "Ver datos tecnicos",
-      "apps.eyebrow": "Aplicaciones",
-      "apps.title": "Seis escenarios, una misma arquitectura de decision.",
-      "apps.busTitle": "Autobuses",
-      "apps.busText": "Arquitecturas multi-rack para urbano e interurbano.",
-      "apps.seaTitle": "Marino",
-      "apps.seaText": "Sistemas paralelizables para entornos hibridos y electricos.",
-      "apps.agrTitle": "Agricola",
-      "apps.agrText": "Energia robusta para maquinaria exigente.",
-      "apps.vclTitle": "VCL",
-      "apps.vclText": "Integracion para series cortas y medias.",
-      "apps.chargeTitle": "Carga movil",
-      "apps.chargeText": "Soporte energetico temporal o semiestacionario.",
-      "apps.railTitle": "Ferrocarril",
-      "apps.railText": "Escalado multipack para grandes necesidades.",
-      "method.eyebrow": "Metodo",
-      "method.title": "Un proceso reimaginado como tres niveles de madurez tecnica.",
-      "method.oneTitle": "Encaje",
-      "method.oneText": "Aplicacion, tension, energia, envolvente, volumen y calendario.",
-      "method.twoTitle": "Integracion",
-      "method.twoText": "Mecanica, comunicaciones, termica, arquitectura multipack y documentacion.",
-      "method.threeTitle": "Activacion",
-      "method.threeText": "Puesta en marcha, formacion, soporte inicial y ajuste de configuracion.",
-      "docs.eyebrow": "Datos tecnicos",
-      "docs.title": "Documentacion presentada como panel de decisiones.",
-      "docs.text": "En lugar de dispersar informacion, la version reimaginada agrupa lo que un equipo tecnico necesita pedir o revisar: envolvente, comunicaciones, tension, manuales y puesta en marcha.",
-      "docs.cad": "Envolvente y montaje",
-      "docs.can": "Comunicacion",
-      "docs.hv": "Arquitectura electrica",
-      "docs.ops": "Manual y arranque",
-      "contact.eyebrow": "Consulta tecnica",
-      "contact.title": "Convierte la visita en una solicitud util para ventas e ingenieria.",
-      "form.name": "Nombre",
-      "form.company": "Empresa",
-      "form.email": "Correo profesional",
-      "form.country": "Pais",
-      "form.application": "Aplicacion",
-      "form.product": "Sistema de interes",
-      "form.stage": "Fase",
-      "form.volume": "Volumen",
-      "form.message": "Necesidad tecnica",
-      "form.placeholder": "Energia requerida, tension, restricciones mecanicas, comunicaciones, plazos o contexto del vehiculo.",
-      "form.privacy": "Acepto el tratamiento de mis datos para responder a esta solicitud.",
-      "form.submit": "Enviar consulta",
-      "form.select": "Selecciona una opcion",
-      "form.optional": "Opcional",
-      "option.bus": "Autobuses",
-      "option.sea": "Marino",
-      "option.agr": "Agricola",
-      "option.vcl": "Vehiculos comerciales ligeros",
-      "option.charge": "Carga movil",
-      "option.rail": "Ferrocarril",
-      "option.unknown": "A definir",
-      "option.system": "Sistema completo",
-      "option.compare": "Comparar alternativas",
-      "option.quote": "Presupuesto inicial",
-      "option.design": "Diseno de integracion",
-      "option.validation": "Validacion tecnica",
-      "option.purchase": "Compra o industrializacion",
-      "option.prototype": "Prototipo",
-      "option.short": "Serie corta",
-      "option.medium": "Serie media",
-      "option.open": "A definir",
-      "footer.text": "Reimaginacion visual para sistemas de baterias de alto voltaje."
-    },
-    en: {
-      "brand.claim": "High Voltage Lab",
+    es: es,
+    en: merge(es, {
+      "brand.claim": "WebReimagination",
+      "nav.open": "Open menu",
+      "nav.landing": "Landing",
       "nav.map": "Orbital map",
       "nav.contact": "Contact",
-      "opening.eyebrow": "Industrial reimagination",
-      "opening.title": "A website that presents the system as a living electrical architecture.",
-      "opening.text": "The third version turns navigation into an orbital map, reduces commercial noise and makes products, applications, method and data feel more memorable.",
-      "orbit.core": "Living system",
+      "nav.language": "Select language",
+      "ribbon.prev": "Move ribbon left",
+      "ribbon.next": "Move ribbon right",
+      "orbit.core": "Architecture",
       "orbit.systems": "Systems",
-      "orbit.systemsText": "Packs, control and energy.",
+      "orbit.systemsText": "Packs and control.",
       "orbit.apps": "Applications",
-      "orbit.appsText": "Electrified sectors.",
+      "orbit.appsText": "Use cases.",
       "orbit.method": "Method",
-      "orbit.methodText": "Feasibility and integration.",
+      "orbit.methodText": "Technical process.",
       "orbit.docs": "Data",
       "orbit.docsText": "CAD, CAN and HV.",
       "orbit.contact": "Contact",
-      "orbit.contactText": "Qualified request.",
-      "hero.eyebrow": "High voltage batteries",
-      "hero.title": "From pack to ecosystem: energy, control and support in one clear reading.",
-      "hero.text": "A proposal for OEMs and manufacturers that need to integrate high voltage battery systems into demanding applications with less technical friction and clearer decisions.",
-      "metric.energy": "Energy per pack",
-      "metric.voltage": "Nominal range",
-      "metric.protection": "Protection",
-      "systems.eyebrow": "Systems",
-      "systems.title": "Technical families turned into visual pieces.",
-      "systems.text": "The infinite ribbon keeps exploration alive: first the family is recognised, then the selected card opens with integration data.",
+      "orbit.contactText": "Guided request.",
+      "card.orbitEyebrow": "Living map",
+      "card.orbitTitle": "Navigable orbital map.",
+      "card.orbitText": "Each node opens a developed section. The ribbon works as a visual entry point, not as a text block.",
+      "card.systemsTitle": "Packs, BMS and modular architecture.",
+      "card.systemsText": "NMC, LFP and multipack control families with direct access to the technical card.",
+      "card.openSystems": "Open systems",
+      "card.appsTitle": "Electrified sectors by scenario.",
+      "card.appsText": "Bus, marine, agricultural, LCV, mobile charging and rail in a quick reading.",
+      "card.openApps": "Open applications",
+      "card.methodTitle": "From technical fit to viable proposal.",
+      "card.methodText": "Requirements, integration, validation and initial support without detours.",
+      "card.openMethod": "Open method",
+      "card.docsTitle": "Actionable technical data.",
+      "card.docsText": "CAD, CAN, HV, OPS and request checklist for technical teams.",
+      "card.openDocs": "Open documentation",
+      "card.contactTitle": "Validated form and direct contact.",
+      "card.contactText": "A clean, filtered request useful for sales and engineering.",
+      "card.openContact": "Open contact",
+      "systems.title": "Packs, BMS and integrable architecture.",
+      "systems.text": "NMC and LFP families, BMS supervision, energy, voltage and technical validation points.",
+      "systems.ask": "Add system to request",
+      "systems.docs": "View documentation",
+      "systems.add": "Add to request",
+      "systems.matrixTitle": "What is validated before proposing configuration.",
+      "systems.m1Title": "Envelope",
+      "systems.m1Text": "Dimensions, mounting, environmental protection, service access and vehicle constraints.",
+      "systems.m2Title": "HV architecture",
+      "systems.m2Text": "Nominal voltage, number of packs, series/parallel strategy and protections.",
+      "systems.m3Title": "Control",
+      "systems.m3Text": "BMS, CAN communication, diagnostics, SOC/SOH states and safety logic.",
       "ribbon.nmc": "High density in a compact format.",
       "ribbon.lfp": "Safety, service life and scaling.",
       "ribbon.bms": "Centralised multipack control.",
-      "systems.add": "Add to request",
-      "systems.docs": "View technical data",
-      "apps.eyebrow": "Applications",
-      "apps.title": "Six scenarios, one decision architecture.",
-      "apps.busTitle": "Buses",
-      "apps.busText": "Multi-rack architectures for urban and intercity platforms.",
-      "apps.seaTitle": "Marine",
-      "apps.seaText": "Parallel systems for hybrid and electric environments.",
+      "apps.title": "Applications by real use.",
+      "apps.text": "Demanding sectors grouped as scenarios: use condition, technical priority and next step.",
+      "apps.all": "All",
+      "apps.mobility": "Mobility",
+      "apps.industrial": "Industrial",
+      "apps.heavy": "High demand",
+      "apps.busTitle": "Electric and hydrogen buses",
+      "apps.busText": "Multi-rack architectures for urban and intercity use, focused on availability, safety and service.",
+      "apps.seaTitle": "Electric and hybrid marine",
+      "apps.seaText": "Parallel systems for demanding environments where redundancy, envelope and communication matter.",
       "apps.agrTitle": "Agricultural",
-      "apps.agrText": "Robust energy for demanding machinery.",
-      "apps.vclTitle": "LCV",
-      "apps.vclText": "Integration for short and medium production runs.",
+      "apps.agrText": "Robust energy for field machinery, vibration, dust and variable duty cycles.",
+      "apps.vclTitle": "Light commercial vehicles",
+      "apps.vclText": "Integration for short and medium runs where timing, cost and compatibility matter.",
       "apps.chargeTitle": "Mobile charging",
-      "apps.chargeText": "Temporary or semi-stationary energy support.",
+      "apps.chargeText": "Temporary or semi-stationary energy support for events, work sites or local backup.",
       "apps.railTitle": "Rail",
-      "apps.railText": "Multipack scaling for high energy needs.",
-      "method.eyebrow": "Method",
-      "method.title": "A process reimagined as three levels of technical maturity.",
+      "apps.railText": "Multipack scaling for high energy needs, intensive cycles and operational safety.",
+      "apps.validate": "Validate application",
+      "method.title": "From technical need to viable proposal.",
+      "method.text": "Fit, integration, validation and activation order the technical-commercial conversation.",
       "method.oneTitle": "Fit",
-      "method.oneText": "Application, voltage, energy, envelope, volume and schedule.",
+      "method.oneText": "Application, voltage, energy, envelope, volume, schedule and approval constraints.",
       "method.twoTitle": "Integration",
-      "method.twoText": "Mechanics, communications, thermal profile, multipack architecture and documentation.",
-      "method.threeTitle": "Activation",
-      "method.threeText": "Commissioning, training, initial support and configuration tuning.",
-      "docs.eyebrow": "Technical data",
-      "docs.title": "Documentation presented as a decision panel.",
-      "docs.text": "Instead of scattering information, this reimagined version groups what a technical team needs to request or review: envelope, communications, voltage, manuals and commissioning.",
-      "docs.cad": "Envelope and mounting",
-      "docs.can": "Communication",
-      "docs.hv": "Electrical architecture",
-      "docs.ops": "Manual and start-up",
-      "contact.eyebrow": "Technical request",
-      "contact.title": "Turn the visit into a useful request for sales and engineering.",
+      "method.twoText": "Mechanics, communication, thermal profile, safety, multipack architecture and base documentation.",
+      "method.threeTitle": "Validation",
+      "method.threeText": "Technical review, risks, compatibility, configuration proposal and start-up conditions.",
+      "method.fourTitle": "Activation",
+      "method.fourText": "Offer, commissioning, initial support and configuration adjustments.",
+      "method.plannerTitle": "Organise the first technical conversation.",
+      "method.prepare": "Prepare request",
+      "route.result": "Request prepared for {application}, at {stage} stage, with interest in {product}.",
+      "docs.title": "Documentation by technical utility.",
+      "docs.text": "CAD, CAN, HV and OPS separated so only the necessary material is requested.",
+      "docs.cadTitle": "Envelope and mounting",
+      "docs.cadText": "Drawings, interfaces, available volume, service access and fixing constraints.",
+      "docs.canTitle": "Communication",
+      "docs.canText": "Messages, diagnostics, states, alarms and coordination with the control unit.",
+      "docs.hvTitle": "Electrical architecture",
+      "docs.hvText": "Nominal voltage, protections, HVIL, safety and series/parallel configuration.",
+      "docs.opsTitle": "Operation",
+      "docs.opsText": "Commissioning, maintenance, usage recommendations and initial support.",
+      "docs.checkTitle": "Mark what you need to review.",
+      "docs.checkText": "The selection is saved to open contact with a more ordered request.",
+      "docs.needCad": "CAD drawings or mechanical volume",
+      "docs.needCan": "CAN matrix or diagnostics",
+      "docs.needHv": "HV range and protections",
+      "docs.needOps": "Manual and commissioning",
+      "docs.request": "Request documentation",
+      "docs.counter": "{count} items selected.",
+      "contact.title": "Validated technical request.",
+      "contact.text": "The form limits fields, validates options and preserves selections made from other sections.",
       "form.name": "Name",
       "form.company": "Company",
       "form.email": "Business email",
@@ -192,71 +320,61 @@
       "option.short": "Short run",
       "option.medium": "Medium run",
       "option.open": "To be defined",
-      "footer.text": "Visual reimagination for high voltage battery systems."
-    },
-    eu: {
-      "brand.claim": "High Voltage Lab",
+      "footer.text": "Reimagined version with infinite ribbon navigation.",
+      "processGuide.eyebrow": "GUIDED PROCESS",
+      "processGuide.open": "Open guided process",
+      "processGuide.close": "Close guided process",
+      "scroll.top": "Back to top",
+      "feedback.invalid": "Review the marked fields before sending.",
+      "feedback.ready": "Request validated. Preparing technical submission.",
+      "feedback.file": "Request validated. Served by HTTP it would be sent to the technical endpoint.",
+      "feedback.ok": "Request validated correctly.",
+      "feedback.error": "The request could not be sent. Review the fields.",
+      "feedback.product": "System added to the request."
+    }),
+    eu: merge(es, {
+      "brand.claim": "Web berrirudikapena",
+      "nav.open": "Ireki menua",
+      "nav.landing": "Landing",
       "nav.map": "Orbita mapa",
       "nav.contact": "Kontaktua",
-      "opening.eyebrow": "Berrirudikatze industriala",
-      "opening.title": "Sistema arkitektura elektriko bizi gisa aurkezten duen webgunea.",
-      "opening.text": "Hirugarren bertsioak nabigazioa orbita mapa bihurtzen du, zarata komertziala murrizten du eta produktuak, aplikazioak, metodoa eta datuak esperientzia gogoangarriago batean antolatzen ditu.",
-      "orbit.core": "Sistema bizia",
+      "nav.language": "Hautatu hizkuntza",
+      "ribbon.prev": "Mugitu zinta ezkerrera",
+      "ribbon.next": "Mugitu zinta eskuinera",
+      "orbit.core": "Arkitektura",
       "orbit.systems": "Sistemak",
-      "orbit.systemsText": "Packak, kontrola eta energia.",
+      "orbit.systemsText": "Packak eta kontrola.",
       "orbit.apps": "Aplikazioak",
-      "orbit.appsText": "Sektore elektrifikatuak.",
+      "orbit.appsText": "Erabilera kasuak.",
       "orbit.method": "Metodoa",
-      "orbit.methodText": "Bideragarritasuna eta integrazioa.",
+      "orbit.methodText": "Prozesu teknikoa.",
       "orbit.docs": "Datuak",
       "orbit.docsText": "CAD, CAN eta HV.",
       "orbit.contact": "Kontaktua",
-      "orbit.contactText": "Kontsulta kualifikatua.",
-      "hero.eyebrow": "Tentsio altuko bateriak",
-      "hero.title": "Packetik ekosistemara: energia, kontrola eta laguntza irakurketa bakarrean.",
-      "hero.text": "Aplikazio zorrotzetan tentsio altuko bateria sistemak integratu behar dituzten OEM eta fabrikatzaileentzat egindako proposamena.",
-      "metric.energy": "Energia pack bakoitzeko",
-      "metric.voltage": "Tarte nominala",
-      "metric.protection": "Babesa",
-      "systems.eyebrow": "Sistemak",
-      "systems.title": "Familia teknikoak pieza bisual bihurtuta.",
-      "systems.text": "Zinta infinituak esplorazioa bizirik mantentzen du: lehenik familia identifikatzen da, gero fitxa teknikoa irekitzen da.",
-      "ribbon.nmc": "Dentsitate handia formatu trinkoan.",
-      "ribbon.lfp": "Segurtasuna, bizi erabilgarria eta eskalatzea.",
-      "ribbon.bms": "Multipack kontrol zentralizatua.",
-      "systems.add": "Kontsultan sartu",
-      "systems.docs": "Datu teknikoak ikusi",
-      "apps.eyebrow": "Aplikazioak",
-      "apps.title": "Sei egoera, erabaki arkitektura bera.",
-      "apps.busTitle": "Autobusak",
-      "apps.busText": "Hiri eta hiriarteko plataformetarako multi-rack arkitekturak.",
-      "apps.seaTitle": "Itsasoa",
-      "apps.seaText": "Ingurune hibrido eta elektrikoetarako sistema paralelizagarriak.",
-      "apps.agrTitle": "Nekazaritza",
-      "apps.agrText": "Makineria zorrotzerako energia sendoa.",
-      "apps.vclTitle": "VCL",
-      "apps.vclText": "Serie labur eta ertainetarako integrazioa.",
-      "apps.chargeTitle": "Karga mugikorra",
-      "apps.chargeText": "Aldi baterako edo erdi-estazionarioko energia laguntza.",
-      "apps.railTitle": "Trena",
-      "apps.railText": "Energia premia handietarako multipack eskalatzea.",
-      "method.eyebrow": "Metodoa",
-      "method.title": "Prozesua hiru heldutasun tekniko mailatan berrirudikatuta.",
-      "method.oneTitle": "Egokitzapena",
-      "method.oneText": "Aplikazioa, tentsioa, energia, ingurua, bolumena eta egutegia.",
-      "method.twoTitle": "Integrazioa",
-      "method.twoText": "Mekanika, komunikazioak, termika, multipack arkitektura eta dokumentazioa.",
-      "method.threeTitle": "Aktibazioa",
-      "method.threeText": "Martxan jartzea, prestakuntza, hasierako laguntza eta konfigurazio doikuntza.",
-      "docs.eyebrow": "Datu teknikoak",
-      "docs.title": "Dokumentazioa erabaki panel gisa aurkeztuta.",
-      "docs.text": "Informazioa sakabanatu ordez, bertsio honek talde teknikoak eskatu edo berrikusi behar duena biltzen du: ingurua, komunikazioak, tentsioa, eskuliburuak eta abiaraztea.",
-      "docs.cad": "Ingurua eta muntaketa",
-      "docs.can": "Komunikazioa",
-      "docs.hv": "Arkitektura elektrikoa",
-      "docs.ops": "Eskuliburua eta abiaraztea",
-      "contact.eyebrow": "Kontsulta teknikoa",
-      "contact.title": "Bisita salmenta eta ingeniaritzarako eskaera erabilgarri bihurtu.",
+      "orbit.contactText": "Kontsulta gidatua.",
+      "card.orbitTitle": "Nabigazio orbitala zintaren barruan.",
+      "card.openSystems": "Ireki sistemak",
+      "card.openApps": "Ireki aplikazioak",
+      "card.openMethod": "Ireki metodoa",
+      "card.openDocs": "Ireki dokumentazioa",
+      "card.openContact": "Ireki kontaktua",
+      "systems.title": "Arkitektura modularra packak integratu daitekeen soluzio bihurtzeko.",
+      "systems.ask": "Sartu sistema kontsultan",
+      "systems.docs": "Ikusi dokumentazioa",
+      "systems.add": "Sartu kontsultan",
+      "apps.title": "Soluzioa hobeto ulertzen da erabilera errealetik hasten denean.",
+      "apps.all": "Guztiak",
+      "apps.mobility": "Mugikortasuna",
+      "apps.industrial": "Industriala",
+      "apps.heavy": "Eskari handia",
+      "apps.validate": "Balidatu aplikazioa",
+      "method.title": "Behar teknikotik proposamen bideragarrira joateko bide argia.",
+      "method.prepare": "Prestatu kontsulta",
+      "route.result": "Kontsulta prestatuta {application} aplikaziorako, {stage} fasean, {product} sistemarekin.",
+      "docs.title": "Datu teknikoak eskaera panel argi bihurtuta.",
+      "docs.request": "Eskatu dokumentazioa",
+      "docs.counter": "{count} elementu hautatuta.",
+      "contact.title": "Webaren azken zatiak interesa informazio erabilgarri bihurtzen du.",
       "form.name": "Izena",
       "form.company": "Enpresa",
       "form.email": "Laneko posta",
@@ -268,7 +386,7 @@
       "form.message": "Behar teknikoa",
       "form.placeholder": "Behar den energia, tentsioa, muga mekanikoak, komunikazioak, epeak edo ibilgailuaren testuingurua.",
       "form.privacy": "Nire datuak eskaera honi erantzuteko tratatzea onartzen dut.",
-      "form.submit": "Kontsulta bidali",
+      "form.submit": "Bidali kontsulta",
       "form.select": "Aukeratu aukera bat",
       "form.optional": "Aukerakoa",
       "option.bus": "Autobusak",
@@ -279,80 +397,56 @@
       "option.rail": "Trena",
       "option.unknown": "Zehazteko",
       "option.system": "Sistema osoa",
-      "option.compare": "Alternatibak alderatu",
-      "option.quote": "Hasierako aurrekontua",
-      "option.design": "Integrazio diseinua",
-      "option.validation": "Balidazio teknikoa",
-      "option.purchase": "Erosketa edo industrializazioa",
-      "option.prototype": "Prototipoa",
-      "option.short": "Serie laburra",
-      "option.medium": "Serie ertaina",
-      "option.open": "Zehazteko",
-      "footer.text": "Tentsio altuko bateria sistemetarako berrirudikatze bisuala."
-    },
-    fr: {
-      "brand.claim": "High Voltage Lab",
+      "option.compare": "Aukerak alderatu",
+      "footer.text": "Zinta infinituko nabigazioa duen bertsio berrirudikatua.",
+      "processGuide.eyebrow": "PROZESU GIDATUA",
+      "processGuide.open": "Ireki prozesu gidatua",
+      "processGuide.close": "Itxi prozesu gidatua",
+      "scroll.top": "Itzuli hasierara"
+    }),
+    fr: merge(es, {
+      "brand.claim": "WebReimagination",
+      "nav.open": "Ouvrir le menu",
+      "nav.landing": "Landing",
       "nav.map": "Carte orbitale",
       "nav.contact": "Contact",
-      "opening.eyebrow": "Reimagination industrielle",
-      "opening.title": "Un site qui presente le systeme comme une architecture electrique vivante.",
-      "opening.text": "La troisieme version transforme la navigation en carte orbitale, reduit le bruit commercial et rend les produits, applications, methode et donnees plus memorables.",
-      "orbit.core": "Systeme vivant",
+      "nav.language": "Choisir la langue",
+      "ribbon.prev": "Deplacer le ruban vers la gauche",
+      "ribbon.next": "Deplacer le ruban vers la droite",
+      "orbit.core": "Architecture",
       "orbit.systems": "Systemes",
-      "orbit.systemsText": "Packs, controle et energie.",
+      "orbit.systemsText": "Packs et controle.",
       "orbit.apps": "Applications",
-      "orbit.appsText": "Secteurs electrifies.",
+      "orbit.appsText": "Cas d'usage.",
       "orbit.method": "Methode",
-      "orbit.methodText": "Faisabilite et integration.",
+      "orbit.methodText": "Processus technique.",
       "orbit.docs": "Donnees",
       "orbit.docsText": "CAD, CAN et HV.",
       "orbit.contact": "Contact",
-      "orbit.contactText": "Demande qualifiee.",
-      "hero.eyebrow": "Batteries haute tension",
-      "hero.title": "Du pack a l'ecosysteme: energie, controle et support en une seule lecture.",
-      "hero.text": "Une proposition pour les OEM et fabricants qui doivent integrer des systemes de batterie haute tension dans des applications exigeantes avec moins de friction technique.",
-      "metric.energy": "Energie par pack",
-      "metric.voltage": "Plage nominale",
-      "metric.protection": "Protection",
-      "systems.eyebrow": "Systemes",
-      "systems.title": "Familles techniques transformees en pieces visuelles.",
-      "systems.text": "Le ruban infini maintient l'exploration active: la famille est reconnue, puis la fiche concrete s'ouvre avec les donnees d'integration.",
-      "ribbon.nmc": "Haute densite en format compact.",
-      "ribbon.lfp": "Securite, duree de vie et evolution.",
-      "ribbon.bms": "Controle multipack centralise.",
+      "orbit.contactText": "Demande guidee.",
+      "card.orbitTitle": "Navigation orbitale dans le ruban.",
+      "card.openSystems": "Ouvrir systemes",
+      "card.openApps": "Ouvrir applications",
+      "card.openMethod": "Ouvrir methode",
+      "card.openDocs": "Ouvrir documentation",
+      "card.openContact": "Ouvrir contact",
+      "systems.title": "Architecture modulaire pour transformer les packs en solution integrable.",
+      "systems.ask": "Ajouter le systeme a la demande",
+      "systems.docs": "Voir documentation",
       "systems.add": "Ajouter a la demande",
-      "systems.docs": "Voir donnees techniques",
-      "apps.eyebrow": "Applications",
-      "apps.title": "Six scenarios, une meme architecture de decision.",
-      "apps.busTitle": "Bus",
-      "apps.busText": "Architectures multi-rack pour urbain et interurbain.",
-      "apps.seaTitle": "Maritime",
-      "apps.seaText": "Systemes parallelisables pour environnements hybrides et electriques.",
-      "apps.agrTitle": "Agricole",
-      "apps.agrText": "Energie robuste pour machines exigeantes.",
-      "apps.vclTitle": "VCL",
-      "apps.vclText": "Integration pour petites et moyennes series.",
-      "apps.chargeTitle": "Recharge mobile",
-      "apps.chargeText": "Support energetique temporaire ou semi-stationnaire.",
-      "apps.railTitle": "Ferroviaire",
-      "apps.railText": "Evolution multipack pour grands besoins energetiques.",
-      "method.eyebrow": "Methode",
-      "method.title": "Un processus reimagine en trois niveaux de maturite technique.",
-      "method.oneTitle": "Adequation",
-      "method.oneText": "Application, tension, energie, enveloppe, volume et calendrier.",
-      "method.twoTitle": "Integration",
-      "method.twoText": "Mecanique, communications, thermique, architecture multipack et documentation.",
-      "method.threeTitle": "Activation",
-      "method.threeText": "Mise en service, formation, support initial et ajustement de configuration.",
-      "docs.eyebrow": "Donnees techniques",
-      "docs.title": "Documentation presentee comme panneau de decision.",
-      "docs.text": "Au lieu de disperser l'information, cette version regroupe ce qu'une equipe technique doit demander ou verifier: enveloppe, communications, tension, manuels et mise en service.",
-      "docs.cad": "Enveloppe et montage",
-      "docs.can": "Communication",
-      "docs.hv": "Architecture electrique",
-      "docs.ops": "Manuel et demarrage",
-      "contact.eyebrow": "Demande technique",
-      "contact.title": "Transformer la visite en demande utile pour ventes et ingenierie.",
+      "apps.title": "La solution se comprend mieux quand elle part de l'usage reel.",
+      "apps.all": "Toutes",
+      "apps.mobility": "Mobilite",
+      "apps.industrial": "Industriel",
+      "apps.heavy": "Forte demande",
+      "apps.validate": "Valider application",
+      "method.title": "Un chemin clair du besoin technique a la proposition viable.",
+      "method.prepare": "Preparer la demande",
+      "route.result": "Demande preparee pour {application}, phase {stage}, avec interet pour {product}.",
+      "docs.title": "Donnees techniques transforme es en panneau de demande clair.",
+      "docs.request": "Demander documentation",
+      "docs.counter": "{count} elements selectionnes.",
+      "contact.title": "La derniere partie du site transforme l'interet en information actionnable.",
       "form.name": "Nom",
       "form.company": "Entreprise",
       "form.email": "Email professionnel",
@@ -365,114 +459,85 @@
       "form.placeholder": "Energie requise, tension, contraintes mecaniques, communications, delais ou contexte vehicule.",
       "form.privacy": "J'accepte le traitement de mes donnees pour repondre a cette demande.",
       "form.submit": "Envoyer la demande",
-      "form.select": "Selectionner une option",
+      "form.select": "Selectionnez une option",
       "form.optional": "Optionnel",
       "option.bus": "Bus",
-      "option.sea": "Maritime",
+      "option.sea": "Marine",
       "option.agr": "Agricole",
       "option.vcl": "Vehicules utilitaires legers",
       "option.charge": "Recharge mobile",
-      "option.rail": "Ferroviaire",
+      "option.rail": "Rail",
       "option.unknown": "A definir",
       "option.system": "Systeme complet",
       "option.compare": "Comparer alternatives",
-      "option.quote": "Devis initial",
-      "option.design": "Conception d'integration",
-      "option.validation": "Validation technique",
-      "option.purchase": "Achat ou industrialisation",
-      "option.prototype": "Prototype",
-      "option.short": "Petite serie",
-      "option.medium": "Serie moyenne",
-      "option.open": "A definir",
-      "footer.text": "Reimagination visuelle pour systemes de batteries haute tension."
-    }
+      "footer.text": "Version reimaginee avec navigation par ruban infini.",
+      "processGuide.eyebrow": "PROCESSUS GUIDE",
+      "processGuide.open": "Ouvrir le processus guide",
+      "processGuide.close": "Fermer le processus guide",
+      "scroll.top": "Retour en haut"
+    })
   };
 
   var products = {
     es: {
-      nmc: {
-        tag: "Series NMC",
-        title: "Pack compacto de alta densidad energetica",
-        summary: "Solucion para aplicaciones con restricciones de espacio, montaje versatil y necesidad de energia en formato slim.",
-        specs: [["35-56 kWh", "Energia"], ["333-666 V", "Tension"], ["IP67", "Proteccion"], ["CAN", "Comunicacion"]]
-      },
-      lfp: {
-        tag: "Series LFP",
-        title: "Pack orientado a seguridad, durabilidad y escalado",
-        summary: "Familia para aplicaciones donde la vida util, la estabilidad termica y la industrializacion por volumen tienen prioridad.",
-        specs: [["38-60 kWh", "Energia"], ["384-768 V", "Tension"], ["LFP", "Quimica"], ["Multi", "Escalado"]]
-      },
-      bms: {
-        tag: "Supermaster BMS",
-        title: "Control centralizado para arquitecturas multipack",
-        summary: "Supervision de varios packs, gestion de seguridad, comunicacion del sistema y soporte para configuraciones complejas.",
-        specs: [["CAN", "Bus"], ["HVIL", "Seguridad"], ["SOC/SOH", "Estado"], ["Multi", "Packs"]]
-      }
+      nmc: { tag: "Series NMC", title: "Pack compacto de alta densidad energetica", summary: "Solucion para aplicaciones con restricciones de espacio, montaje versatil y necesidad de energia en formato slim.", specs: [["35-56 kWh", "Energia"], ["333-666 V", "Tension"], ["IP67", "Proteccion"], ["CAN", "Comunicacion"]] },
+      lfp: { tag: "Series LFP", title: "Pack orientado a seguridad, vida util y escalado", summary: "Familia para aplicaciones donde la vida util, la estabilidad termica y la industrializacion por volumen pesan mas.", specs: [["38-60 kWh", "Energia"], ["384-768 V", "Tension"], ["LFP", "Quimica"], ["Multi", "Escalado"]] },
+      bms: { tag: "Supermaster BMS", title: "Control centralizado para arquitecturas multipack", summary: "Supervision de varios packs, gestion de seguridad, comunicacion de sistema y soporte para configuraciones complejas.", specs: [["CAN", "Bus"], ["HVIL", "Seguridad"], ["SOC/SOH", "Estado"], ["Multi", "Packs"]] }
     },
     en: {
-      nmc: {
-        tag: "NMC Series",
-        title: "Compact pack with high energy density",
-        summary: "Solution for space-constrained applications with versatile mounting and energy needs in a slim format.",
-        specs: [["35-56 kWh", "Energy"], ["333-666 V", "Voltage"], ["IP67", "Protection"], ["CAN", "Communication"]]
-      },
-      lfp: {
-        tag: "LFP Series",
-        title: "Pack focused on safety, durability and scaling",
-        summary: "Family for applications where service life, thermal stability and volume industrialisation are key.",
-        specs: [["38-60 kWh", "Energy"], ["384-768 V", "Voltage"], ["LFP", "Chemistry"], ["Multi", "Scaling"]]
-      },
-      bms: {
-        tag: "Supermaster BMS",
-        title: "Centralised control for multipack architectures",
-        summary: "Supervision of multiple packs, safety management, system communication and support for complex configurations.",
-        specs: [["CAN", "Bus"], ["HVIL", "Safety"], ["SOC/SOH", "State"], ["Multi", "Packs"]]
-      }
+      nmc: { tag: "NMC Series", title: "Compact high energy density pack", summary: "Solution for applications with space constraints, versatile mounting and energy needs in a slim format.", specs: [["35-56 kWh", "Energy"], ["333-666 V", "Voltage"], ["IP67", "Protection"], ["CAN", "Communication"]] },
+      lfp: { tag: "LFP Series", title: "Pack focused on safety, service life and scaling", summary: "Family for applications where service life, thermal stability and volume industrialisation matter most.", specs: [["38-60 kWh", "Energy"], ["384-768 V", "Voltage"], ["LFP", "Chemistry"], ["Multi", "Scaling"]] },
+      bms: { tag: "Supermaster BMS", title: "Centralised control for multipack architectures", summary: "Supervision of several packs, safety management, system communication and support for complex configurations.", specs: [["CAN", "Bus"], ["HVIL", "Safety"], ["SOC/SOH", "State"], ["Multi", "Packs"]] }
     },
     eu: {
-      nmc: {
-        tag: "NMC serieak",
-        title: "Energia dentsitate handiko pack trinkoa",
-        summary: "Espazio mugatuetarako, muntaketa moldakorretarako eta formatu meheko energia beharretarako irtenbidea.",
-        specs: [["35-56 kWh", "Energia"], ["333-666 V", "Tentsioa"], ["IP67", "Babesa"], ["CAN", "Komunikazioa"]]
-      },
-      lfp: {
-        tag: "LFP serieak",
-        title: "Segurtasuna, iraupena eta eskalatzea lehenesten dituen packa",
-        summary: "Bizi erabilgarria, egonkortasun termikoa eta bolumeneko industrializazioa garrantzitsuak diren aplikazioetarako familia.",
-        specs: [["38-60 kWh", "Energia"], ["384-768 V", "Tentsioa"], ["LFP", "Kimika"], ["Multi", "Eskalatzea"]]
-      },
-      bms: {
-        tag: "Supermaster BMS",
-        title: "Multipack arkituretarako kontrol zentralizatua",
-        summary: "Pack anitzen gainbegiratzea, segurtasun kudeaketa, sistemaren komunikazioa eta konfigurazio konplexuentzako euskarria.",
-        specs: [["CAN", "Bus"], ["HVIL", "Segurtasuna"], ["SOC/SOH", "Egoera"], ["Multi", "Packak"]]
-      }
+      nmc: { tag: "NMC Series", title: "Energia dentsitate handiko pack trinkoa", summary: "Espazio mugak, muntaketa moldakorra eta formatu mehean energia behar duten aplikazioetarako soluzioa.", specs: [["35-56 kWh", "Energia"], ["333-666 V", "Tentsioa"], ["IP67", "Babesa"], ["CAN", "Komunikazioa"]] },
+      lfp: { tag: "LFP Series", title: "Segurtasuna, bizi erabilgarria eta eskalatzea", summary: "Bizi erabilgarria, egonkortasun termikoa eta bolumen industrializazioa lehenesten dituzten aplikazioetarako familia.", specs: [["38-60 kWh", "Energia"], ["384-768 V", "Tentsioa"], ["LFP", "Kimika"], ["Multi", "Eskalatzea"]] },
+      bms: { tag: "Supermaster BMS", title: "Multipack arkitekturentzako kontrol zentralizatua", summary: "Pack anitzen gainbegiratzea, segurtasun kudeaketa, sistemaren komunikazioa eta konfigurazio konplexuetarako euskarria.", specs: [["CAN", "Bus"], ["HVIL", "Segurtasuna"], ["SOC/SOH", "Egoera"], ["Multi", "Packak"]] }
     },
     fr: {
-      nmc: {
-        tag: "Series NMC",
-        title: "Pack compact a haute densite energetique",
-        summary: "Solution pour applications avec contraintes d'espace, montage polyvalent et besoin d'energie en format slim.",
-        specs: [["35-56 kWh", "Energie"], ["333-666 V", "Tension"], ["IP67", "Protection"], ["CAN", "Communication"]]
-      },
-      lfp: {
-        tag: "Series LFP",
-        title: "Pack oriente securite, duree de vie et evolution",
-        summary: "Famille pour applications ou la duree de vie, la stabilite thermique et l'industrialisation par volume sont prioritaires.",
-        specs: [["38-60 kWh", "Energie"], ["384-768 V", "Tension"], ["LFP", "Chimie"], ["Multi", "Evolution"]]
-      },
-      bms: {
-        tag: "Supermaster BMS",
-        title: "Controle centralise pour architectures multipack",
-        summary: "Supervision de plusieurs packs, gestion de securite, communication systeme et support pour configurations complexes.",
-        specs: [["CAN", "Bus"], ["HVIL", "Securite"], ["SOC/SOH", "Etat"], ["Multi", "Packs"]]
-      }
+      nmc: { tag: "Series NMC", title: "Pack compact a haute densite energetique", summary: "Solution pour applications avec contraintes d'espace, montage polyvalent et besoin d'energie en format slim.", specs: [["35-56 kWh", "Energie"], ["333-666 V", "Tension"], ["IP67", "Protection"], ["CAN", "Communication"]] },
+      lfp: { tag: "Series LFP", title: "Pack oriente securite, duree de vie et evolution", summary: "Famille pour applications ou la duree de vie, la stabilite thermique et l'industrialisation par volume sont prioritaires.", specs: [["38-60 kWh", "Energie"], ["384-768 V", "Tension"], ["LFP", "Chimie"], ["Multi", "Evolution"]] },
+      bms: { tag: "Supermaster BMS", title: "Controle centralise pour architectures multipack", summary: "Supervision de plusieurs packs, gestion de securite, communication systeme et support pour configurations complexes.", specs: [["CAN", "Bus"], ["HVIL", "Securite"], ["SOC/SOH", "Etat"], ["Multi", "Packs"]] }
     }
   };
 
-  var currentLanguage = "es";
-  var currentProduct = "nmc";
+  var guides = {
+    es: {
+      landing: ["Ruta de la landing", [["01", "Mueve la cinta", "Usa las flechas laterales para avanzar o retroceder por las tarjetas sin abandonar la landing."], ["02", "Empieza por el mapa", "La primera tarjeta es el mapa orbital: cada nodo abre su pagina concreta y evita repetir menus estaticos."], ["03", "Lee solo el resumen", "Cada tarjeta da una idea corta de la seccion. No intenta sustituir la pagina desarrollada."], ["04", "Abre una seccion", "Pulsa Sistemas, Aplicaciones, Metodo, Documentacion o Contacto para entrar en contenido completo."], ["05", "Vuelve cuando quieras", "El enlace Landing de la cabecera te devuelve a esta cinta como indice principal."]]],
+      sistemas: ["Ruta de sistemas", [["01", "Selecciona una familia", "Pasa por la cinta de NMC, LFP y BMS o usa las pestanas para fijar una familia concreta."], ["02", "Comprueba magnitudes", "Lee energia, tension, proteccion y comunicacion antes de mirar textos secundarios."], ["03", "Cruza con la matriz", "La parte inferior resume envolvente, HV y control: esos tres bloques indican si la solucion encaja."], ["04", "Guarda sistema", "Incluir en consulta lleva el producto seleccionado al formulario de contacto."], ["05", "Pide documentacion", "Si faltan datos, abre Documentacion para solicitar CAD, CAN, HV u OPS."]]],
+      aplicaciones: ["Ruta de aplicaciones", [["01", "Filtra primero", "Elige movilidad, industrial o alta demanda para reducir tarjetas y evitar lectura innecesaria."], ["02", "Evalua el escenario", "Cada tarjeta responde a una aplicacion concreta: bus, marino, agricola, VCL, carga movil o rail."], ["03", "Valida una aplicacion", "El enlace de cada tarjeta guarda esa aplicacion para el formulario."], ["04", "Pasa a sistemas", "Despues de elegir uso, revisa que familia tecnica encaja mejor."], ["05", "Cierra con metodo", "Si todavia no hay datos suficientes, Metodo ordena fase, aplicacion y sistema."]]],
+      metodo: ["Ruta del metodo", [["01", "Lee el flujo", "Encaje, integracion, validacion y activacion muestran como se transforma una necesidad en propuesta."], ["02", "Usa el preparador", "Selecciona aplicacion, fase y sistema para construir una consulta con contexto."], ["03", "Revisa el resultado", "La frase generada confirma que la solicitud tiene direccion tecnica."], ["04", "Prepara consulta", "El boton traslada esas selecciones al formulario."], ["05", "No repitas datos", "La pagina de contacto carga lo elegido para que solo completes empresa, correo y necesidad."]]],
+      documentacion: ["Ruta de documentacion", [["01", "Identifica el bloque", "CAD, CAN, HV y OPS separan mecanica, comunicacion, arquitectura electrica y operacion."], ["02", "Marca necesidades", "El checklist convierte lo seleccionado en contexto para contacto."], ["03", "Evita pedir todo", "Selecciona solo lo que ayude a decidir el siguiente paso tecnico."], ["04", "Solicita documentacion", "El boton abre Contacto con sistema y fase preorientados."], ["05", "Completa detalle", "En el formulario anade tension, energia, plazos o restricciones si los tienes."]]],
+      contacto: ["Ruta de contacto", [["01", "Revisa precargas", "Si vienes de otra pagina, aplicacion, sistema, fase o mensaje pueden aparecer ya seleccionados."], ["02", "Completa identidad", "Nombre, empresa y correo profesional son obligatorios para una respuesta util."], ["03", "Ajusta opciones", "Aplicacion, sistema y fase solo permiten valores contemplados por la web."], ["04", "Describe la necesidad", "Incluye energia, tension, montaje, comunicacion o plazo. El mensaje debe tener detalle minimo."], ["05", "Envia o escribe", "Puedes enviar el formulario validado o abrir correo directo desde el icono."]]]
+    },
+    en: {
+      landing: ["Landing route", [["01", "Move the ribbon", "Use the side arrows to move through cards without leaving the landing."], ["02", "Start with the map", "The first card is the orbital map: every node opens its own page and avoids static menu repetition."], ["03", "Read only the summary", "Each card gives a short idea of the section. It does not replace the developed page."], ["04", "Open a section", "Click Systems, Applications, Method, Documentation or Contact to enter full content."], ["05", "Return anytime", "The Landing link in the header brings you back to this ribbon as the main index."]]],
+      sistemas: ["Systems route", [["01", "Select a family", "Move through NMC, LFP and BMS or use the tabs to fix a specific family."], ["02", "Check magnitudes", "Read energy, voltage, protection and communication before secondary text."], ["03", "Cross with the matrix", "Envelope, HV and control show whether the solution fits."], ["04", "Save system", "Add to request sends the selected product to the contact form."], ["05", "Request documents", "If data is missing, open Documentation to ask for CAD, CAN, HV or OPS."]]],
+      aplicaciones: ["Applications route", [["01", "Filter first", "Choose mobility, industrial or high demand to reduce cards and avoid unnecessary reading."], ["02", "Evaluate the scenario", "Each card answers a concrete application: bus, marine, agricultural, LCV, mobile charging or rail."], ["03", "Validate an application", "The card link stores that application for the form."], ["04", "Move to systems", "After choosing use, review which technical family fits best."], ["05", "Close with method", "If data is still missing, Method orders stage, application and system."]]],
+      metodo: ["Method route", [["01", "Read the flow", "Fit, integration, validation and activation show how a need becomes a proposal."], ["02", "Use the planner", "Select application, stage and system to build a contextual request."], ["03", "Review the result", "The generated sentence confirms the request has technical direction."], ["04", "Prepare request", "The button transfers those selections to the form."], ["05", "Do not repeat data", "Contact loads the chosen context so you only complete company, email and need."]]],
+      documentacion: ["Documentation route", [["01", "Identify the block", "CAD, CAN, HV and OPS separate mechanics, communication, electrical architecture and operation."], ["02", "Mark needs", "The checklist converts selected items into contact context."], ["03", "Avoid asking for everything", "Select only what helps decide the next technical step."], ["04", "Request documentation", "The button opens Contact with system and stage already oriented."], ["05", "Complete detail", "In the form add voltage, energy, timing or constraints if available."]]],
+      contacto: ["Contact route", [["01", "Review preloads", "If you come from another page, application, system, stage or message may already be selected."], ["02", "Complete identity", "Name, company and business email are required for a useful response."], ["03", "Adjust options", "Application, system and stage only allow expected values."], ["04", "Describe the need", "Include energy, voltage, mounting, communication or timing. The message needs minimum detail."], ["05", "Send or write", "Send the validated form or open direct email from the icon."]]]
+    }
+  };
+
+  guides.eu = {
+    landing: ["Landing ibilbidea", [["01", "Mugitu zinta", "Erabili alboko geziak txarteletan aurrera edo atzera egiteko landingetik irten gabe."], ["02", "Hasi mapatik", "Lehen txartela mapa orbitala da: nodo bakoitzak bere orria irekitzen du eta menu errepikapena saihesten du."], ["03", "Irakurri laburpena", "Txartel bakoitzak atalaren ideia laburra ematen du. Ez du orri garatua ordezkatzen."], ["04", "Ireki atal bat", "Sistemak, aplikazioak, metodoa, dokumentazioa edo kontaktua sakatu eduki osoa ikusteko."], ["05", "Itzuli nahi duzunean", "Goiburuko Landing estekak zinta honetara itzultzen zaitu."]]],
+    sistemas: ["Sistemen ibilbidea", [["01", "Aukeratu familia", "Mugitu NMC, LFP eta BMS artean edo erabili pestanak familia zehatza finkatzeko."], ["02", "Egiaztatu magnitudeak", "Irakurri energia, tentsioa, babesa eta komunikazioa bigarren mailako testua baino lehen."], ["03", "Lotu matrizearekin", "Ingurua, HV eta kontrola soluzioak egokitzen den ala ez erakusten dute."], ["04", "Gorde sistema", "Kontsultan sartzeak hautatutako produktua kontaktu formulariora bidaltzen du."], ["05", "Eskatu dokumentuak", "Datuak falta badira, ireki Dokumentazioa CAD, CAN, HV edo OPS eskatzeko."]]],
+    aplicaciones: ["Aplikazioen ibilbidea", [["01", "Iragazi lehenik", "Aukeratu mugikortasuna, industriala edo eskari handia txartel kopurua murrizteko."], ["02", "Ebaluatu eszenarioa", "Txartel bakoitzak aplikazio zehatza azaltzen du: busa, itsasoa, nekazaritza, VCL, karga mugikorra edo trena."], ["03", "Balidatu aplikazioa", "Txartelaren estekak aplikazio hori gordetzen du formulariorako."], ["04", "Joan sistemetara", "Erabilera aukeratu ondoren, berrikusi zein familia tekniko egokitzen den hobekien."], ["05", "Itxi metodoarekin", "Datuak falta badira, Metodoak fasea, aplikazioa eta sistema ordenatzen ditu."]]],
+    metodo: ["Metodoaren ibilbidea", [["01", "Irakurri fluxua", "Egokitzapena, integrazioa, balidazioa eta aktibazioa beharra proposamen bihurtzeko modua erakusten dute."], ["02", "Erabili prestatzailea", "Aukeratu aplikazioa, fasea eta sistema testuingurudun kontsulta sortzeko."], ["03", "Berrikusi emaitza", "Sortutako esaldiak eskaerak norabide teknikoa duela baieztatzen du."], ["04", "Prestatu kontsulta", "Botoiak hautapen horiek formulariora eramaten ditu."], ["05", "Ez errepikatu datuak", "Kontaktuak aukeratutako testuingurua kargatzen du."]]],
+    documentacion: ["Dokumentazioaren ibilbidea", [["01", "Identifikatu blokea", "CAD, CAN, HV eta OPS mekanika, komunikazioa, arkitektura elektrikoa eta operazioa bereizten dituzte."], ["02", "Markatu beharrak", "Checklistak hautatutako elementuak kontaktu testuinguru bihurtzen ditu."], ["03", "Ez eskatu guztia", "Aukeratu hurrengo urrats teknikoa erabakitzeko balio duena bakarrik."], ["04", "Eskatu dokumentazioa", "Botoiak Kontaktua irekitzen du sistema eta fasea orientatuta."], ["05", "Osatu xehetasuna", "Formularioan gehitu tentsioa, energia, epeak edo murrizketak badituzu."]]],
+    contacto: ["Kontaktuaren ibilbidea", [["01", "Berrikusi aurrekargak", "Beste orri batetik bazatoz, aplikazioa, sistema, fasea edo mezua hautatuta egon daitezke."], ["02", "Osatu identitatea", "Izena, enpresa eta laneko posta beharrezkoak dira erantzun erabilgarria jasotzeko."], ["03", "Doitu aukerak", "Aplikazioak, sistemak eta faseak balio aurreikusiak bakarrik onartzen dituzte."], ["04", "Azaldu beharra", "Sartu energia, tentsioa, muntaketa, komunikazioa edo epeak. Mezuak gutxieneko xehetasuna behar du."], ["05", "Bidali edo idatzi", "Bidali formulario balidatua edo ireki zuzeneko posta ikonotik."]]]
+  };
+
+  guides.fr = {
+    landing: ["Parcours landing", [["01", "Deplacer le ruban", "Utilisez les fleches laterales pour avancer ou reculer dans les cartes sans quitter la landing."], ["02", "Commencer par la carte", "La premiere carte est la carte orbitale: chaque noeud ouvre sa page et evite les menus repetes."], ["03", "Lire seulement le resume", "Chaque carte donne une idee courte de la section. Elle ne remplace pas la page developpee."], ["04", "Ouvrir une section", "Cliquez Systemes, Applications, Methode, Documentation ou Contact pour entrer dans le contenu complet."], ["05", "Revenir quand necessaire", "Le lien Landing dans l'en-tete ramene a ce ruban comme index principal."]]],
+    sistemas: ["Parcours systemes", [["01", "Selectionner une famille", "Parcourez NMC, LFP et BMS ou utilisez les onglets pour fixer une famille precise."], ["02", "Verifier les grandeurs", "Lisez energie, tension, protection et communication avant le texte secondaire."], ["03", "Croiser avec la matrice", "Enveloppe, HV et controle indiquent si la solution est adaptee."], ["04", "Garder le systeme", "Ajouter a la demande envoie le produit choisi vers le formulaire."], ["05", "Demander les documents", "Si des donnees manquent, ouvrez Documentation pour demander CAD, CAN, HV ou OPS."]]],
+    aplicaciones: ["Parcours applications", [["01", "Filtrer d'abord", "Choisissez mobilite, industriel ou forte demande pour reduire les cartes et eviter la lecture inutile."], ["02", "Evaluer le scenario", "Chaque carte traite une application concrete: bus, marine, agricole, VCL, recharge mobile ou rail."], ["03", "Valider l'application", "Le lien de la carte garde cette application pour le formulaire."], ["04", "Passer aux systemes", "Apres le choix de l'usage, verifiez quelle famille technique convient le mieux."], ["05", "Fermer avec methode", "S'il manque encore des donnees, Methode ordonne phase, application et systeme."]]],
+    metodo: ["Parcours methode", [["01", "Lire le flux", "Adaptation, integration, validation et activation montrent comment le besoin devient proposition."], ["02", "Utiliser le preparateur", "Selectionnez application, phase et systeme pour creer une demande contextualisee."], ["03", "Reviser le resultat", "La phrase generee confirme que la demande a une direction technique."], ["04", "Preparer la demande", "Le bouton transfere ces choix au formulaire."], ["05", "Ne pas repeter les donnees", "Contact charge le contexte choisi pour completer seulement entreprise, email et besoin."]]],
+    documentacion: ["Parcours documentation", [["01", "Identifier le bloc", "CAD, CAN, HV et OPS separent mecanique, communication, architecture electrique et operation."], ["02", "Marquer les besoins", "La checklist transforme les elements choisis en contexte de contact."], ["03", "Eviter de tout demander", "Selectionnez uniquement ce qui aide a decider la prochaine etape technique."], ["04", "Demander documentation", "Le bouton ouvre Contact avec systeme et phase deja orientes."], ["05", "Completer le detail", "Dans le formulaire, ajoutez tension, energie, delais ou contraintes si disponibles."]]],
+    contacto: ["Parcours contact", [["01", "Verifier les prechargements", "Si vous venez d'une autre page, application, systeme, phase ou message peuvent deja etre selectionnes."], ["02", "Completer l'identite", "Nom, entreprise et email professionnel sont obligatoires pour une reponse utile."], ["03", "Ajuster les options", "Application, systeme et phase acceptent uniquement les valeurs prevues."], ["04", "Decrire le besoin", "Incluez energie, tension, montage, communication ou delai. Le message demande un minimum de detail."], ["05", "Envoyer ou ecrire", "Envoyez le formulaire valide ou ouvrez l'email direct depuis l'icone."]]]
+  };
+
   var allowed = {
     application: ["bus", "sea", "agr", "vcl", "charge", "rail", "unknown"],
     product: ["nmc", "lfp", "bms", "system", "compare"],
@@ -480,6 +545,10 @@
     volume: ["", "prototype", "short", "medium", "open"]
   };
 
+  var storedLanguage = readStore("pc1.lang");
+  var currentLanguage = copy[storedLanguage] ? storedLanguage : "es";
+  var currentProduct = "nmc";
+  var page = document.body.getAttribute("data-page") || "landing";
   var menuButton = document.querySelector(".menu-toggle");
   var mainNav = document.querySelector(".main-nav");
   var mapButton = document.querySelector(".map-button");
@@ -487,8 +556,6 @@
   var languageButton = document.querySelector(".language-button");
   var languageMenu = document.querySelector(".language-menu");
   var currentLangLabel = document.querySelector(".current-lang");
-  var orbitMap = document.querySelector(".orbit-map");
-  var orbitNodes = Array.prototype.slice.call(document.querySelectorAll(".orbit-node"));
   var miniNodes = Array.prototype.slice.call(document.querySelectorAll(".mini-node"));
   var productRibbon = document.querySelector(".product-ribbon");
   var consoleTabs = Array.prototype.slice.call(document.querySelectorAll(".console-tab"));
@@ -499,19 +566,54 @@
   var addProductButton = document.querySelector("[data-add-product]");
   var leadForm = document.querySelector(".lead-form");
   var feedback = document.querySelector(".form-feedback");
+  var processTrigger = document.querySelector(".process-trigger");
+  var processPanel = document.querySelector("#proceso-guia");
+  var processTitle = document.querySelector("[data-process-title]");
+  var processSteps = document.querySelector("[data-process-steps]");
+  var processClose = document.querySelector(".process-close");
   var scrollTopButton = document.querySelector(".scroll-top");
+  var siteFooter = document.querySelector(".site-footer");
+  var ribbonControls = Array.prototype.slice.call(document.querySelectorAll("[data-ribbon-control]"));
 
-  function text(key) {
+  function t(key) {
     return (copy[currentLanguage] && copy[currentLanguage][key]) || copy.es[key] || "";
   }
 
-  function getProductData(productKey) {
-    return (products[currentLanguage] && products[currentLanguage][productKey]) || products.es[productKey] || products.es.nmc;
+  function readStore(key) {
+    try {
+      return window.localStorage.getItem(key);
+    } catch (error) {
+      return "";
+    }
+  }
+
+  function writeStore(key, value) {
+    try {
+      window.localStorage.setItem(key, value);
+    } catch (error) {
+      return false;
+    }
+    return true;
+  }
+
+  function removeStore(key) {
+    try {
+      window.localStorage.removeItem(key);
+    } catch (error) {
+      return false;
+    }
+    return true;
   }
 
   function setExpanded(button, expanded) {
     if (button) {
       button.setAttribute("aria-expanded", expanded ? "true" : "false");
+    }
+  }
+
+  function clearNode(node) {
+    while (node && node.firstChild) {
+      node.removeChild(node.firstChild);
     }
   }
 
@@ -528,38 +630,59 @@
 
   function applyLanguage(language) {
     if (!copy[language]) {
-      return;
+      language = "es";
     }
     currentLanguage = language;
     document.documentElement.lang = language;
+    document.documentElement.dir = "ltr";
+    writeStore("pc1.lang", language);
     if (currentLangLabel) {
       currentLangLabel.textContent = language.toUpperCase();
     }
+    Array.prototype.forEach.call(document.querySelectorAll("[data-lang]"), function (button) {
+      var active = button.getAttribute("data-lang") === language;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-current", active ? "true" : "false");
+    });
     Array.prototype.forEach.call(document.querySelectorAll("[data-i18n]"), function (node) {
-      var value = text(node.getAttribute("data-i18n"));
+      var value = t(node.getAttribute("data-i18n"));
       if (value) {
         node.textContent = value;
       }
     });
     Array.prototype.forEach.call(document.querySelectorAll("[data-i18n-placeholder]"), function (node) {
-      var value = text(node.getAttribute("data-i18n-placeholder"));
+      var value = t(node.getAttribute("data-i18n-placeholder"));
       if (value) {
         node.setAttribute("placeholder", value);
       }
     });
+    Array.prototype.forEach.call(document.querySelectorAll("[data-i18n-aria-label]"), function (node) {
+      var value = t(node.getAttribute("data-i18n-aria-label"));
+      if (value) {
+        node.setAttribute("aria-label", value);
+      }
+    });
+    renderGuide();
     renderProduct(currentProduct);
+    updateRouteResult();
+    updateDocCounter();
+    refreshFormLanguageState();
     closePanels();
   }
 
-  function clearNode(node) {
-    while (node.firstChild) {
-      node.removeChild(node.firstChild);
-    }
+  function getProductData(productKey) {
+    return (products[currentLanguage] && products[currentLanguage][productKey]) || products.es[productKey] || products.es.nmc;
   }
 
   function renderProduct(productKey) {
-    var data = getProductData(productKey);
+    if (!detailTag && consoleTabs.length === 0) {
+      return;
+    }
+    if (!products.es[productKey]) {
+      productKey = "nmc";
+    }
     currentProduct = productKey;
+    var data = getProductData(productKey);
     if (detailTag) {
       detailTag.textContent = data.tag;
     }
@@ -591,7 +714,60 @@
     });
   }
 
-  function setupRibbon() {
+  function setupInfiniteRibbon() {
+    Array.prototype.forEach.call(document.querySelectorAll("[data-infinite-ribbon]"), function (track) {
+      if (track.getAttribute("data-ready") === "true") {
+        return;
+      }
+      var children = Array.prototype.slice.call(track.children);
+      children.forEach(function (child) {
+        var clone = child.cloneNode(true);
+        clone.setAttribute("aria-hidden", "true");
+        Array.prototype.forEach.call(clone.querySelectorAll("a, button, input, select, textarea, [tabindex]"), function (focusable) {
+          focusable.tabIndex = -1;
+        });
+        track.appendChild(clone);
+      });
+      track.setAttribute("data-ready", "true");
+      track.addEventListener("mouseenter", function () { track.classList.add("is-paused"); });
+      track.addEventListener("mouseleave", function () { track.classList.remove("is-paused"); });
+      track.addEventListener("focusin", function () { track.classList.add("is-paused"); });
+      track.addEventListener("focusout", function () { track.classList.remove("is-paused"); });
+    });
+  }
+
+  function bindLandingRibbonControls() {
+    if (ribbonControls.length === 0) {
+      return;
+    }
+    ribbonControls.forEach(function (control) {
+      control.addEventListener("click", function () {
+        var shell = control.closest(".landing-ribbon-shell");
+        var track = shell ? shell.querySelector("[data-infinite-ribbon]") : null;
+        if (!track) {
+          return;
+        }
+        var direction = control.getAttribute("data-ribbon-control") === "prev" ? 1 : -1;
+        var card = track.querySelector("[data-ribbon-card]");
+        var step = card ? Math.min(720, Math.max(360, card.getBoundingClientRect().width * 0.72)) : 460;
+        var current = parseFloat(track.getAttribute("data-manual-shift") || "0");
+        var halfWidth = Math.max(step, track.scrollWidth / 2);
+        var next = current + (direction * step);
+        if (Math.abs(next) > halfWidth) {
+          next = 0;
+        }
+        track.setAttribute("data-manual-shift", String(next));
+        track.style.setProperty("--manual-shift", next.toFixed(0) + "px");
+        track.classList.add("is-paused");
+        window.clearTimeout(track._pc1RibbonTimer);
+        track._pc1RibbonTimer = window.setTimeout(function () {
+          track.classList.remove("is-paused");
+        }, 1500);
+      });
+    });
+  }
+
+  function setupProductRibbon() {
     if (!productRibbon || productRibbon.getAttribute("data-ready") === "true") {
       return;
     }
@@ -605,6 +781,9 @@
     productRibbon.setAttribute("data-ready", "true");
     Array.prototype.forEach.call(document.querySelectorAll(".ribbon-card"), function (card) {
       var productKey = card.getAttribute("data-product");
+      if (!productKey) {
+        return;
+      }
       card.addEventListener("mouseenter", function () {
         productRibbon.classList.add("is-paused");
         renderProduct(productKey);
@@ -631,161 +810,82 @@
     });
   }
 
+  function setOrbitPositions(container, nodes, options, now) {
+    var rect = container.getBoundingClientRect();
+    var radiusX = Math.max(options.minX, rect.width * options.xFactor);
+    var radiusY = Math.max(options.minY, rect.height * options.yFactor);
+    var rotation = now * options.speed + options.offset;
+    nodes.forEach(function (node, index) {
+      var angle = rotation + (Math.PI * 2 * index / nodes.length);
+      node.style.setProperty("--x", (Math.cos(angle) * radiusX).toFixed(2) + "px");
+      node.style.setProperty("--y", (Math.sin(angle) * radiusY).toFixed(2) + "px");
+    });
+  }
+
   function animateOrbit(container, nodes, options) {
     if (!container || nodes.length === 0) {
       return;
     }
+    var reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var paused = false;
     var start = window.performance.now();
-    var speed = options.speed;
-    var offset = options.offset;
-
-    function frame(now) {
-      if (!paused) {
-        var rect = container.getBoundingClientRect();
-        var radiusX = Math.max(options.minX, rect.width * options.xFactor);
-        var radiusY = Math.max(options.minY, rect.height * options.yFactor);
-        var rotation = (now - start) * speed;
-        nodes.forEach(function (node, index) {
-          var angle = rotation + offset + (Math.PI * 2 * index / nodes.length);
-          var x = Math.cos(angle) * radiusX;
-          var y = Math.sin(angle) * radiusY;
-          node.style.setProperty("--x", x.toFixed(2) + "px");
-          node.style.setProperty("--y", y.toFixed(2) + "px");
-        });
-      } else {
-        start += 16;
-      }
-      window.requestAnimationFrame(frame);
+    setOrbitPositions(container, nodes, options, 0);
+    if (reducedMotion) {
+      return;
     }
-
     nodes.forEach(function (node) {
       node.addEventListener("mouseenter", function () { paused = true; });
       node.addEventListener("focus", function () { paused = true; });
       node.addEventListener("mouseleave", function () { paused = false; });
       node.addEventListener("blur", function () { paused = false; });
     });
+    function frame(now) {
+      if (!paused) {
+        setOrbitPositions(container, nodes, options, now - start);
+      } else {
+        start += 16;
+      }
+      window.requestAnimationFrame(frame);
+    }
     window.requestAnimationFrame(frame);
   }
 
-  function normalizeValue(field) {
-    if (!field || typeof field.value !== "string") {
-      return "";
-    }
-    return field.value.replace(/\s+/g, " ").trim();
-  }
-
-  function validateText(field, min, max, required) {
-    var value = normalizeValue(field);
-    var safeText = /^[A-Za-z0-9\u00C0-\u024F .,'&()\/+-]*$/;
-    if (!required && value.length === 0) {
-      field.setCustomValidity("");
-      return true;
-    }
-    if (value.length < min) {
-      field.setCustomValidity("Completa este campo con mas detalle.");
-      return false;
-    }
-    if (value.length > max || !safeText.test(value)) {
-      field.setCustomValidity("El contenido incluye caracteres no contemplados.");
-      return false;
-    }
-    field.value = value;
-    field.setCustomValidity("");
-    return true;
-  }
-
-  function validateEmail(field) {
-    var value = normalizeValue(field).toLowerCase();
-    var emailPattern = /^[^\s@<>()[\]{}"'`]+@[^\s@<>()[\]{}"'`]+\.[^\s@<>()[\]{}"'`]{2,}$/;
-    if (!emailPattern.test(value) || value.length > 160) {
-      field.setCustomValidity("Introduce un correo profesional valido.");
-      return false;
-    }
-    field.value = value;
-    field.setCustomValidity("");
-    return true;
-  }
-
-  function validateSelect(field, allowedValues, required) {
-    var value = field ? field.value : "";
-    if (required && value === "") {
-      field.setCustomValidity("Selecciona una opcion.");
-      return false;
-    }
-    if (allowedValues.indexOf(value) === -1) {
-      field.setCustomValidity("La opcion seleccionada no esta contemplada.");
-      return false;
-    }
-    field.setCustomValidity("");
-    return true;
-  }
-
-  function validateMessage(field) {
-    var value = normalizeValue(field);
-    var safeMessage = /^[A-Za-z0-9\u00C0-\u024F .,;:!?%&()\/+\-\n\r]*$/;
-    if (value.length > 1400 || !safeMessage.test(value)) {
-      field.setCustomValidity("La necesidad tecnica incluye caracteres no contemplados.");
-      return false;
-    }
-    field.value = value;
-    field.setCustomValidity("");
-    return true;
-  }
-
-  function validateForm(form) {
-    var valid = true;
-    var website = form.elements.website;
-    if (website && website.value.trim() !== "") {
-      return false;
-    }
-    valid = validateText(form.elements.name, 2, 80, true) && valid;
-    valid = validateText(form.elements.company, 2, 120, true) && valid;
-    valid = validateEmail(form.elements.email) && valid;
-    valid = validateText(form.elements.country, 0, 80, false) && valid;
-    valid = validateSelect(form.elements.application, allowed.application, true) && valid;
-    valid = validateSelect(form.elements.product, allowed.product, true) && valid;
-    valid = validateSelect(form.elements.stage, allowed.stage, true) && valid;
-    valid = validateSelect(form.elements.volume, allowed.volume, false) && valid;
-    valid = validateMessage(form.elements.message) && valid;
-    if (!form.elements.privacy.checked) {
-      form.elements.privacy.setCustomValidity("Debes aceptar el tratamiento de datos para enviar la consulta.");
-      valid = false;
-    } else {
-      form.elements.privacy.setCustomValidity("");
-    }
-    return valid;
-  }
-
-  function bindForm() {
-    if (!leadForm) {
+  function renderGuide() {
+    if (!processTitle || !processSteps) {
       return;
     }
-    Array.prototype.forEach.call(leadForm.elements, function (field) {
-      field.addEventListener("input", function () {
-        field.setCustomValidity("");
-        if (feedback) {
-          feedback.textContent = "";
-        }
-      });
-      field.addEventListener("change", function () {
-        field.setCustomValidity("");
-      });
+    var languageGuides = guides[currentLanguage] || guides.es;
+    var guide = languageGuides[page] || guides.es[page] || guides.es.landing;
+    processTitle.textContent = guide[0];
+    clearNode(processSteps);
+    guide[1].forEach(function (step) {
+      var item = document.createElement("li");
+      var number = document.createElement("span");
+      var wrapper = document.createElement("div");
+      var title = document.createElement("h3");
+      var text = document.createElement("p");
+      number.textContent = step[0];
+      title.textContent = step[1];
+      text.textContent = step[2];
+      wrapper.appendChild(title);
+      wrapper.appendChild(text);
+      item.appendChild(number);
+      item.appendChild(wrapper);
+      processSteps.appendChild(item);
     });
-    leadForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-      if (!validateForm(leadForm)) {
-        if (feedback) {
-          feedback.textContent = "Revisa los campos marcados antes de enviar.";
-        }
-        leadForm.reportValidity();
-        return;
-      }
-      if (feedback) {
-        feedback.textContent = "Consulta validada. En una integracion real se enviaria al equipo tecnico-comercial.";
-      }
-      leadForm.reset();
-    });
+  }
+
+  function setProcessPanel(open) {
+    if (!processPanel || !processTrigger) {
+      return;
+    }
+    processPanel.classList.toggle("is-open", open);
+    processPanel.setAttribute("aria-hidden", open ? "false" : "true");
+    processTrigger.setAttribute("aria-expanded", open ? "true" : "false");
+    processTrigger.setAttribute("aria-label", t(open ? "processGuide.close" : "processGuide.open"));
+    if (open) {
+      processPanel.focus({ preventScroll: true });
+    }
   }
 
   function bindNavigation() {
@@ -822,19 +922,13 @@
         applyLanguage(button.getAttribute("data-lang"));
       });
     });
-    Array.prototype.forEach.call(document.querySelectorAll(".main-nav a, .mini-node, .orbit-node"), function (link) {
-      link.addEventListener("click", function () {
-        if (mainNav) {
-          mainNav.classList.remove("is-open");
-          setExpanded(menuButton, false);
-        }
-        closePanels();
-      });
-    });
     document.addEventListener("click", function (event) {
       var target = event.target;
       if (!target.closest(".map-widget") && !target.closest(".language-widget")) {
         closePanels();
+      }
+      if (!target.closest(".process-widget")) {
+        setProcessPanel(false);
       }
     });
     document.addEventListener("keydown", function (event) {
@@ -844,28 +938,382 @@
           setExpanded(menuButton, false);
         }
         closePanels();
+        setProcessPanel(false);
       }
+    });
+    Array.prototype.forEach.call(document.querySelectorAll(".main-nav a, .mini-node, .orbit-node"), function (link) {
+      link.addEventListener("click", function () {
+        if (mainNav) {
+          mainNav.classList.remove("is-open");
+          setExpanded(menuButton, false);
+        }
+        closePanels();
+      });
     });
   }
 
+  function bindProcessGuide() {
+    if (!processTrigger || !processPanel) {
+      return;
+    }
+    processTrigger.addEventListener("click", function () {
+      setProcessPanel(!processPanel.classList.contains("is-open"));
+    });
+    if (processClose) {
+      processClose.addEventListener("click", function () {
+        setProcessPanel(false);
+        processTrigger.focus({ preventScroll: true });
+      });
+    }
+  }
+
+  function labelForSelect(select) {
+    if (!select || !select.selectedOptions || !select.selectedOptions[0]) {
+      return "";
+    }
+    return select.selectedOptions[0].textContent.trim();
+  }
+
+  function updateRouteResult() {
+    var result = document.querySelector("[data-route-result]");
+    if (!result) {
+      return;
+    }
+    var application = document.querySelector('[data-route-select="application"]');
+    var stage = document.querySelector('[data-route-select="stage"]');
+    var product = document.querySelector('[data-route-select="product"]');
+    result.textContent = t("route.result")
+      .replace("{application}", labelForSelect(application))
+      .replace("{stage}", labelForSelect(stage))
+      .replace("{product}", labelForSelect(product));
+  }
+
+  function currentRouteIntent() {
+    var application = document.querySelector('[data-route-select="application"]');
+    var stage = document.querySelector('[data-route-select="stage"]');
+    var product = document.querySelector('[data-route-select="product"]');
+    return {
+      application: application ? application.value : "",
+      stage: stage ? stage.value : "",
+      product: product ? product.value : ""
+    };
+  }
+
+  function bindRoutePlanner() {
+    Array.prototype.forEach.call(document.querySelectorAll("[data-route-select]"), function (select) {
+      select.addEventListener("change", updateRouteResult);
+    });
+    var send = document.querySelector("[data-route-send]");
+    if (send) {
+      send.addEventListener("click", function () {
+        writeStore("pc1.intent", JSON.stringify(currentRouteIntent()));
+      });
+    }
+    updateRouteResult();
+  }
+
+  function bindApplicationFilters() {
+    var buttons = Array.prototype.slice.call(document.querySelectorAll("[data-app-filter]"));
+    var cards = Array.prototype.slice.call(document.querySelectorAll("[data-sector]"));
+    if (buttons.length === 0) {
+      return;
+    }
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        var filter = button.getAttribute("data-app-filter");
+        buttons.forEach(function (item) {
+          item.classList.toggle("is-active", item === button);
+        });
+        cards.forEach(function (card) {
+          var visible = filter === "all" || card.getAttribute("data-sector") === filter;
+          card.classList.toggle("is-hidden", !visible);
+        });
+      });
+    });
+  }
+
+  function bindIntentLinks() {
+    Array.prototype.forEach.call(document.querySelectorAll("[data-product-link]"), function (link) {
+      link.addEventListener("click", function () {
+        writeStore("pc1.intent", JSON.stringify({ product: link.getAttribute("data-product-link") }));
+      });
+    });
+    Array.prototype.forEach.call(document.querySelectorAll("[data-application-link]"), function (link) {
+      link.addEventListener("click", function () {
+        writeStore("pc1.intent", JSON.stringify({ application: link.getAttribute("data-application-link") }));
+      });
+    });
+  }
+
+  function updateDocCounter() {
+    var counter = document.querySelector("[data-doc-counter]");
+    if (!counter) {
+      return;
+    }
+    var checked = Array.prototype.slice.call(document.querySelectorAll("[data-doc-checklist] input:checked"));
+    counter.textContent = t("docs.counter").replace("{count}", String(checked.length));
+  }
+
+  function bindDocsChecklist() {
+    var checklist = document.querySelector("[data-doc-checklist]");
+    if (!checklist) {
+      return;
+    }
+    checklist.addEventListener("change", updateDocCounter);
+    var send = document.querySelector("[data-doc-send]");
+    if (send) {
+      send.addEventListener("click", function () {
+        var values = Array.prototype.slice.call(checklist.querySelectorAll("input:checked")).map(function (input) {
+          return input.value.toUpperCase();
+        });
+        writeStore("pc1.intent", JSON.stringify({
+          product: "system",
+          stage: "validation",
+          message: values.length ? "Documentacion solicitada: " + values.join(", ") + "." : ""
+        }));
+      });
+    }
+    updateDocCounter();
+  }
+
   function bindProducts() {
-    setupRibbon();
+    setupProductRibbon();
     consoleTabs.forEach(function (tab) {
       tab.addEventListener("click", function () {
         renderProduct(tab.getAttribute("data-product"));
       });
     });
-    if (addProductButton && leadForm) {
+    if (addProductButton) {
       addProductButton.addEventListener("click", function () {
-        if (leadForm.elements.product && allowed.product.indexOf(currentProduct) !== -1) {
-          leadForm.elements.product.value = currentProduct;
-        }
+        writeStore("pc1.intent", JSON.stringify({ product: currentProduct }));
         if (feedback) {
-          feedback.textContent = "Sistema incorporado a la consulta.";
+          feedback.textContent = t("feedback.product");
         }
-        leadForm.scrollIntoView({ behavior: "smooth", block: "start" });
+        window.location.href = "contacto.html";
       });
     }
+  }
+
+  function normalizeValue(field) {
+    if (!field || typeof field.value !== "string") {
+      return "";
+    }
+    return field.value.replace(/[\u0000-\u001F\u007F]/g, " ").replace(/\s+/g, " ").trim();
+  }
+
+  function sameOriginFormAction(form) {
+    try {
+      var action = new URL(form.action, window.location.href);
+      return action.origin === window.location.origin && /\/backend\/contact\.php$/.test(action.pathname);
+    } catch (error) {
+      return false;
+    }
+  }
+
+  function markValidity(field, valid, message) {
+    if (!field) {
+      return true;
+    }
+    field.setCustomValidity(valid ? "" : message);
+    if (valid) {
+      field.removeAttribute("aria-invalid");
+    } else {
+      field.setAttribute("aria-invalid", "true");
+    }
+    return valid;
+  }
+
+  function validateText(field, min, max, required) {
+    var value = normalizeValue(field);
+    var safeText = /^[A-Za-z0-9\u00C0-\u024F .,'&()\/+-]*$/;
+    if (!required && value.length === 0) {
+      return markValidity(field, true, "");
+    }
+    if (value.length < min) {
+      return markValidity(field, false, t("feedback.requiredText"));
+    }
+    if (value.length > max || !safeText.test(value)) {
+      return markValidity(field, false, t("feedback.badText"));
+    }
+    field.value = value;
+    return markValidity(field, true, "");
+  }
+
+  function validateEmail(field) {
+    var value = normalizeValue(field).toLowerCase();
+    var emailPattern = /^[^\s@<>()[\]{}"'`]+@[^\s@<>()[\]{}"'`]+\.[^\s@<>()[\]{}"'`]{2,}$/;
+    if (!emailPattern.test(value) || value.length > 160) {
+      return markValidity(field, false, t("feedback.email"));
+    }
+    field.value = value;
+    return markValidity(field, true, "");
+  }
+
+  function validateSelect(field, allowedValues, required) {
+    var value = field ? field.value : "";
+    if (required && value === "") {
+      return markValidity(field, false, t("feedback.select"));
+    }
+    if (allowedValues.indexOf(value) === -1) {
+      return markValidity(field, false, t("feedback.option"));
+    }
+    return markValidity(field, true, "");
+  }
+
+  function validateMessage(field) {
+    var value = normalizeValue(field);
+    var safeMessage = /^[A-Za-z0-9\u00C0-\u024F .,;:!?%&()\/+\-\n\r]*$/;
+    if (value.length < 12) {
+      return markValidity(field, false, t("feedback.message"));
+    }
+    if (value.length > 1400 || !safeMessage.test(value)) {
+      return markValidity(field, false, t("feedback.badMessage"));
+    }
+    field.value = value;
+    return markValidity(field, true, "");
+  }
+
+  function validateForm(form) {
+    var valid = true;
+    var website = form.elements.website;
+    var allowedFields = ["website", "name", "company", "email", "country", "application", "product", "stage", "volume", "message", "privacy"];
+    var controls = Array.prototype.slice.call(form.elements);
+    if ((form.getAttribute("method") || "").toLowerCase() !== "post" || !sameOriginFormAction(form)) {
+      return false;
+    }
+    valid = controls.every(function (field) {
+      return !field.name || allowedFields.indexOf(field.name) !== -1;
+    }) && valid;
+    if (website && website.value.trim() !== "") {
+      return false;
+    }
+    valid = validateText(form.elements.name, 2, 80, true) && valid;
+    valid = validateText(form.elements.company, 2, 120, true) && valid;
+    valid = validateEmail(form.elements.email) && valid;
+    valid = validateText(form.elements.country, 0, 80, false) && valid;
+    valid = validateSelect(form.elements.application, allowed.application, true) && valid;
+    valid = validateSelect(form.elements.product, allowed.product, true) && valid;
+    valid = validateSelect(form.elements.stage, allowed.stage, true) && valid;
+    valid = validateSelect(form.elements.volume, allowed.volume, false) && valid;
+    valid = validateMessage(form.elements.message) && valid;
+    if (!form.elements.privacy.checked) {
+      markValidity(form.elements.privacy, false, t("feedback.privacy"));
+      valid = false;
+    } else {
+      markValidity(form.elements.privacy, true, "");
+    }
+    return valid;
+  }
+
+  function refreshFormLanguageState() {
+    if (!leadForm) {
+      return;
+    }
+    Array.prototype.forEach.call(leadForm.elements, function (field) {
+      field.setCustomValidity("");
+      field.removeAttribute("aria-invalid");
+    });
+    if (feedback) {
+      feedback.textContent = "";
+    }
+  }
+
+  function prefillForm() {
+    if (!leadForm) {
+      return;
+    }
+    var raw = readStore("pc1.intent");
+    if (!raw) {
+      return;
+    }
+    var intent;
+    try {
+      intent = JSON.parse(raw);
+    } catch (error) {
+      removeStore("pc1.intent");
+      return;
+    }
+    ["application", "product", "stage", "volume"].forEach(function (key) {
+      if (leadForm.elements[key] && allowed[key] && allowed[key].indexOf(intent[key]) !== -1) {
+        leadForm.elements[key].value = intent[key];
+      }
+    });
+    if (intent.message && leadForm.elements.message && /^[A-Za-z0-9\u00C0-\u024F .,;:!?%&()\/+\-\n\r]*$/.test(intent.message)) {
+      leadForm.elements.message.value = intent.message;
+    }
+  }
+
+  function bindForm() {
+    if (!leadForm) {
+      return;
+    }
+    prefillForm();
+    Array.prototype.forEach.call(leadForm.elements, function (field) {
+      field.addEventListener("input", function () {
+        field.setCustomValidity("");
+        field.removeAttribute("aria-invalid");
+        if (feedback) {
+          feedback.textContent = "";
+        }
+      });
+      field.addEventListener("change", function () {
+        field.setCustomValidity("");
+        field.removeAttribute("aria-invalid");
+      });
+    });
+    leadForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      if (!validateForm(leadForm)) {
+        if (feedback) {
+          feedback.textContent = t("feedback.invalid");
+        }
+        leadForm.reportValidity();
+        return;
+      }
+      var submitButton = leadForm.querySelector("[type='submit']");
+      if (submitButton) {
+        submitButton.disabled = true;
+      }
+      if (feedback) {
+        feedback.textContent = t("feedback.ready");
+      }
+      if (window.location.protocol === "file:") {
+        if (feedback) {
+          feedback.textContent = t("feedback.file");
+        }
+        if (submitButton) {
+          submitButton.disabled = false;
+        }
+        return;
+      }
+      window.fetch(leadForm.action, {
+        method: "POST",
+        body: new FormData(leadForm),
+        headers: { "Accept": "application/json" },
+        credentials: "same-origin"
+      }).then(function (response) {
+        return response.json().then(function (payload) {
+          return { response: response, payload: payload };
+        });
+      }).then(function (result) {
+        if (!result.response.ok || !result.payload.ok) {
+          throw result.payload;
+        }
+        if (feedback) {
+          feedback.textContent = result.payload.message || t("feedback.ok");
+        }
+        leadForm.reset();
+        removeStore("pc1.intent");
+      }).catch(function (error) {
+        if (feedback) {
+          feedback.textContent = (error && error.message) || t("feedback.error");
+        }
+      }).finally(function () {
+        if (submitButton) {
+          submitButton.disabled = false;
+        }
+      });
+    });
   }
 
   function bindScrollTop() {
@@ -873,20 +1321,34 @@
       return;
     }
     function updateVisibility() {
-      scrollTopButton.classList.toggle("is-visible", window.scrollY > 520);
+      var shouldShow = window.scrollY > 520;
+      if (page === "landing") {
+        shouldShow = siteFooter ? siteFooter.getBoundingClientRect().top < window.innerHeight + 140 : false;
+      }
+      scrollTopButton.classList.toggle("is-visible", shouldShow);
     }
     scrollTopButton.addEventListener("click", function () {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
     window.addEventListener("scroll", updateVisibility, { passive: true });
+    window.addEventListener("resize", updateVisibility);
     updateVisibility();
   }
 
+  setupInfiniteRibbon();
+  bindLandingRibbonControls();
   bindNavigation();
+  bindProcessGuide();
   bindProducts();
+  bindApplicationFilters();
+  bindIntentLinks();
+  bindRoutePlanner();
+  bindDocsChecklist();
   bindForm();
   bindScrollTop();
-  applyLanguage("es");
-  animateOrbit(orbitMap, orbitNodes, { speed: 0.00026, offset: -0.4, xFactor: 0.33, yFactor: 0.28, minX: 190, minY: 150 });
+  applyLanguage(currentLanguage);
+  Array.prototype.slice.call(document.querySelectorAll(".landing-orbit")).forEach(function (container) {
+    animateOrbit(container, Array.prototype.slice.call(container.querySelectorAll(".orbit-node")), { speed: 0.00024, offset: -0.4, xFactor: 0.38, yFactor: 0.22, minX: 210, minY: 92 });
+  });
   animateOrbit(miniMap, miniNodes, { speed: 0.00045, offset: 0.3, xFactor: 0.33, yFactor: 0.25, minX: 130, minY: 70 });
 }());

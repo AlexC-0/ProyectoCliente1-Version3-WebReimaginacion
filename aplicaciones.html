@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; child-src 'none'; worker-src 'none'; media-src 'none'; manifest-src 'none'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>ProyectoCliente1 | Aplicaciones</title>
+    <meta name="description" content="Aplicaciones electrificadas para sistemas de baterias de alto voltaje: bus, marino, agricola, VCL, carga movil y ferrocarril.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body data-page="aplicaciones">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="ProyectoCliente1 inicio"><span class="brand-sigil" aria-hidden="true"><span></span><span></span><span></span><span></span></span><span class="brand-copy"><strong>ProyectoCliente1</strong><small data-i18n="brand.claim">WebReimaginacion</small></span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu" data-i18n-aria-label="nav.open"><span></span><span></span><span></span></button>
+      <nav id="main-nav" class="main-nav" aria-label="Navegacion principal">
+        <a class="nav-chip" href="index.html" data-i18n="nav.landing">Landing</a>
+        <div class="map-widget"><button class="map-button" type="button" aria-expanded="false" aria-controls="mini-map"><span class="map-mark" aria-hidden="true"></span><span data-i18n="nav.map">Mapa orbital</span></button><div id="mini-map" class="mini-map" aria-label="Mapa orbital reducido"><span class="mini-core"><strong>HV</strong><small data-i18n="orbit.core">Arquitectura</small></span><span class="mini-ring" aria-hidden="true"></span><a class="mini-node" href="sistemas.html" data-mini="systems"><span class="node-icon icon-stack" aria-hidden="true"><i></i><i></i><i></i></span><strong data-i18n="orbit.systems">Sistemas</strong><small data-i18n="orbit.systemsText">Packs y control.</small></a><a class="mini-node" href="aplicaciones.html" data-mini="apps"><span class="node-icon icon-grid" aria-hidden="true"><i></i><i></i><i></i></span><strong data-i18n="orbit.apps">Aplicaciones</strong><small data-i18n="orbit.appsText">Casos de uso.</small></a><a class="mini-node" href="metodo.html" data-mini="method"><span class="node-icon icon-flow" aria-hidden="true"><i></i><i></i><i></i></span><strong data-i18n="orbit.method">Metodo</strong><small data-i18n="orbit.methodText">Proceso tecnico.</small></a><a class="mini-node" href="documentacion.html" data-mini="docs"><span class="node-icon icon-doc" aria-hidden="true"><i></i><i></i><i></i></span><strong data-i18n="orbit.docs">Datos</strong><small data-i18n="orbit.docsText">CAD, CAN y HV.</small></a><a class="mini-node" href="contacto.html" data-mini="contact"><span class="node-icon icon-mail" aria-hidden="true"><i></i><i></i><i></i></span><strong data-i18n="orbit.contact">Contacto</strong><small data-i18n="orbit.contactText">Consulta guiada.</small></a></div></div>
+        <a class="nav-mail" href="contacto.html" aria-label="Contacto"><span class="mail-icon small" aria-hidden="true"></span><span data-i18n="nav.contact">Contacto</span></a>
+        <div class="language-widget"><button class="language-button" type="button" aria-expanded="false" aria-controls="language-menu" aria-label="Seleccionar idioma" data-i18n-aria-label="nav.language"><span class="planet-icon" aria-hidden="true"></span><span class="current-lang">ES</span></button><div id="language-menu" class="language-menu" role="menu"><button type="button" data-lang="es" role="menuitem">ES Espanol</button><button type="button" data-lang="en" role="menuitem">EN English</button><button type="button" data-lang="eu" role="menuitem">EU Euskara</button><button type="button" data-lang="fr" role="menuitem">FR Francais</button></div></div>
+      </nav>
+    </header>
+    <main class="page-main">
+      <section class="section-shell page-hero">
+        <p class="eyebrow" data-i18n="apps.eyebrow">Aplicaciones</p>
+        <h1 data-i18n="apps.title">La solucion se entiende mejor cuando empieza por el uso real.</h1>
+        <p data-i18n="apps.text">Esta version agrupa sectores exigentes como escenarios de decision. Cada tarjeta explica para que sirve, que condicion tecnica pesa mas y como avanzar hacia una consulta util.</p>
+        <div class="filter-bar" role="group" aria-label="Filtro de aplicaciones">
+          <button class="filter-button is-active" type="button" data-app-filter="all" data-i18n="apps.all">Todas</button>
+          <button class="filter-button" type="button" data-app-filter="mobility" data-i18n="apps.mobility">Movilidad</button>
+          <button class="filter-button" type="button" data-app-filter="industrial" data-i18n="apps.industrial">Industrial</button>
+          <button class="filter-button" type="button" data-app-filter="heavy" data-i18n="apps.heavy">Alta demanda</button>
+        </div>
+      </section>
+      <section class="section-shell page-section">
+        <div class="application-grid">
+          <article class="application-card" data-sector="mobility"><span>BUS</span><h2 data-i18n="apps.busTitle">Autobuses electricos e hidrogeno</h2><p data-i18n="apps.busText">Arquitecturas multi-rack para urbano e interurbano, con foco en disponibilidad, seguridad y servicio.</p><a href="contacto.html" data-application-link="bus" data-i18n="apps.validate">Validar aplicacion</a></article>
+          <article class="application-card" data-sector="heavy"><span>SEA</span><h2 data-i18n="apps.seaTitle">Marino electrico e hibrido</h2><p data-i18n="apps.seaText">Sistemas paralelizables para entornos exigentes donde pesan redundancia, envolvente y comunicacion.</p><a href="contacto.html" data-application-link="sea" data-i18n="apps.validate">Validar aplicacion</a></article>
+          <article class="application-card" data-sector="industrial"><span>AGR</span><h2 data-i18n="apps.agrTitle">Agricola</h2><p data-i18n="apps.agrText">Energia robusta para maquinaria de campo, vibracion, polvo y ciclos de trabajo variables.</p><a href="contacto.html" data-application-link="agr" data-i18n="apps.validate">Validar aplicacion</a></article>
+          <article class="application-card" data-sector="mobility"><span>VCL</span><h2 data-i18n="apps.vclTitle">Vehiculos comerciales ligeros</h2><p data-i18n="apps.vclText">Integracion para series cortas y medias donde importan plazo, coste y compatibilidad.</p><a href="contacto.html" data-application-link="vcl" data-i18n="apps.validate">Validar aplicacion</a></article>
+          <article class="application-card" data-sector="industrial"><span>CHG</span><h2 data-i18n="apps.chargeTitle">Carga movil</h2><p data-i18n="apps.chargeText">Soporte energetico temporal o semiestacionario para eventos, obra o respaldo local.</p><a href="contacto.html" data-application-link="charge" data-i18n="apps.validate">Validar aplicacion</a></article>
+          <article class="application-card" data-sector="heavy"><span>RAIL</span><h2 data-i18n="apps.railTitle">Ferrocarril</h2><p data-i18n="apps.railText">Escalado multipack para necesidades energeticas altas, ciclos intensivos y seguridad operacional.</p><a href="contacto.html" data-application-link="rail" data-i18n="apps.validate">Validar aplicacion</a></article>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer"><div class="section-shell footer-inner"><div class="footer-brand"><span class="brand-sigil small" aria-hidden="true"><span></span><span></span><span></span><span></span></span><div><strong>ProyectoCliente1</strong><p data-i18n="footer.text">Version reimaginada con navegacion por cinta infinita.</p></div></div><a class="footer-mail" href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@proyectocliente1.com&su=Consulta%20tecnica%20ProyectoCliente1" target="_blank" rel="noopener noreferrer" aria-label="Contacto directo por correo"><span class="mail-icon" aria-hidden="true"></span><span>contacto@proyectocliente1.com</span></a></div></footer>
+    <div class="process-widget"><button class="process-trigger" type="button" aria-expanded="false" aria-controls="proceso-guia" aria-label="Abrir proceso guiado" data-i18n-aria-label="processGuide.open"><span class="process-arrow" aria-hidden="true"></span><span data-i18n="processGuide.eyebrow">PROCESO GUIADO</span></button><aside id="proceso-guia" class="process-panel" tabindex="-1" aria-hidden="true"><div class="process-panel-head"><div><p class="eyebrow" data-i18n="processGuide.eyebrow">PROCESO GUIADO</p><h2 data-process-title>Guia contextual</h2></div><button class="process-close" type="button" aria-label="Cerrar proceso guiado" data-i18n-aria-label="processGuide.close">&times;</button></div><ol class="process-steps" data-process-steps></ol></aside></div>
+    <button class="scroll-top" type="button" aria-label="Volver al inicio" data-i18n-aria-label="scroll.top"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5l-7 7h4v7h6v-7h4l-7-7z"></path></svg></button>
+    <script src="app.js"></script>
+  </body>
+</html>
